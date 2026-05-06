@@ -6,7 +6,8 @@
 
   <!-- ───── SEO BÁSICO ───── -->
   <title>Seguro de Vida Protección Allianz Argentina | Lebenswahl Broker</title>
-  <meta name="description" content="Contratá el Seguro de Vida Protección de Allianz Argentina con asesoramiento experto de Lebenswahl Broker. Cobertura por muerte, invalidez, enfermedades graves y más. Póliza en dólares, renovación automática." />
+  <meta name="description" content="Contratá el Seguro de Vida Protección de Allianz Argentina con asesoramiento experto de Lebenswahl Broker. Coberturas por muerte, invalidez, enfermedades graves, trasplantes y más. Póliza en dólares, renovación automática. Consultá sin cargo." />
+  <meta name="keywords" content="seguro de vida argentina, seguro de vida allianz, seguro de vida proteccion, broker seguros de vida, seguro de vida en dolares, cobertura por muerte, invalidez por accidente, enfermedades graves seguro, lebenswahl broker" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.lebenswahl.com.ar/seguros/vida/vida-proteccion" />
 
@@ -14,9 +15,15 @@
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_AR" />
   <meta property="og:title" content="Seguro de Vida Protección Allianz Argentina | Lebenswahl Broker" />
-  <meta property="og:description" content="Cobertura integral para vos y tu familia: muerte, invalidez, enfermedades graves y más. Asesoramiento especializado en seguros de vida." />
+  <meta property="og:description" content="Cobertura integral para vos y tu familia: muerte, invalidez, enfermedades graves y más. Asesoramiento especializado en seguros de vida en Argentina." />
   <meta property="og:url" content="https://www.lebenswahl.com.ar/seguros/vida/vida-proteccion" />
   <meta property="og:site_name" content="Lebenswahl Broker" />
+  <meta property="og:image" content="https://www.lebenswahl.com.ar/img/og-seguro-vida.jpg" />
+
+  <!-- ───── TWITTER CARD ───── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Seguro de Vida Protección Allianz Argentina | Lebenswahl Broker" />
+  <meta name="twitter:description" content="Cobertura integral para vos y tu familia: muerte, invalidez, enfermedades graves y más." />
 
   <!-- ───── SCHEMA.ORG ───── -->
   <script type="application/ld+json">
@@ -42,6 +49,66 @@
       ]
     },
     "sameAs": []
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿El costo del seguro de vida depende de la edad?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. El valor del seguro se define a partir de una tabla que considera la edad de la persona al momento de la contratación y el producto elegido."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Hay una edad mínima y máxima para contratar el seguro de vida?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La edad mínima de ingreso es de 18 años y la máxima, de 64 años. La cobertura puede mantenerse hasta los 65 años."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Desde cuándo comienza a regir la cobertura del seguro de vida?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La cobertura comienza a partir del día que se emite la póliza."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿La póliza del seguro de vida se renueva automáticamente?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Es una póliza de vigencia anual con renovación automática, salvo que se solicite su cancelación."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo elegir beneficiarios en el seguro de vida?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Podés designar libremente a tus beneficiarios y modificarlos cuando lo necesites."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.lebenswahl.com.ar"},
+      {"@type":"ListItem","position":2,"name":"Seguros","item":"https://www.lebenswahl.com.ar/seguros"},
+      {"@type":"ListItem","position":3,"name":"Seguros de Vida","item":"https://www.lebenswahl.com.ar/seguros/vida"},
+      {"@type":"ListItem","position":4,"name":"Vida Protección","item":"https://www.lebenswahl.com.ar/seguros/vida/vida-proteccion"}
+    ]
   }
   </script>
 
@@ -109,7 +176,7 @@
     }
 
     .hero{
-      padding:34px 0 20px;
+      padding:24px 0 0;
       background:linear-gradient(180deg,#f8fbff 0%, #f3f7fd 100%);
     }
     .breadcrumbs{
@@ -172,20 +239,6 @@
       place-items:center;
       box-shadow:inset 0 0 0 1px rgba(255,255,255,.45);
     }
-    .ph::before,
-    .ph::after{
-      content:"";
-      position:absolute;
-      border-radius:999px;
-      background:rgba(0,55,129,.08);
-    }
-    .ph::before{width:280px;height:280px;right:-60px;top:-40px}
-    .ph::after{width:220px;height:220px;left:-50px;bottom:-50px}
-    .ph-label{
-      position:relative;z-index:2;
-      padding:14px 20px;border-radius:999px;background:#fff;color:var(--blue);
-      font-weight:700;box-shadow:var(--shadow);
-    }
 
     /* ───── Contenedor imagen que debe llenarse completamente (img4) ───── */
     .ph-full{
@@ -205,6 +258,9 @@
       object-position:center;
       display:block;
     }
+
+    /* ── Compensación de scroll para header sticky (72px aprox) ── */
+    [id]{scroll-margin-top:88px}
 
     section{padding:34px 0}
     .section-head{max-width:780px;margin:0 0 24px}
@@ -337,13 +393,13 @@
       font-size:15px;
       font-weight:700;
       color:#203450;
-      padding:18px 16px 0;
+      padding:18px 16px 14px;
       letter-spacing:.01em;
     }
 
     .footer-ssn{
       width:100%;
-      margin-top:24px;
+      margin-top:0;
       background:#efefef;
       padding:0;
       border-top:none;
@@ -359,19 +415,29 @@
       height:auto;
     }
 
+    /* ── Footer SSN responsive: alinea tagline y franja SSN en mobile ── */
+    @media (max-width: 640px){
+      .brand-footer{
+        font-size:13px;
+        padding:14px 12px 10px;
+      }
+      /* La imagen SSN ya se adapta sola con width:100% */
+    }
+
     @media (max-width: 980px){
       .hero-grid,.cover-grid,.final-cta-grid,.footer-grid{grid-template-columns:1fr}
       .adv-grid{grid-template-columns:1fr}
       .nav{display:none}
-      .ph{min-height:300px}
-      .ph-full{min-height:300px}
+      .ph{min-height:240px}
+      .ph-full{min-height:240px}
     }
     @media (max-width: 640px){
       .topbar-inner{min-height:66px}
       .cta-top{padding:11px 14px;font-size:14px}
-      .hero{padding-top:18px}
-      .hero-grid{padding:18px;border-radius:24px;gap:18px}
-      .hero-copy p{font-size:18px}
+      .hero{padding-top:14px}
+      .hero-grid{padding:16px;border-radius:20px;gap:14px}
+      .hero-copy h1{font-size:clamp(28px,8vw,48px)}
+      .hero-copy p{font-size:17px}
       .btn-primary,.btn-secondary{width:100%;text-align:center}
       .section-head p{font-size:17px}
       .card,.plans-wrap,.adv-item,.footer-box,details{padding:12px}
@@ -383,7 +449,7 @@
       .final-cta{padding:24px}
     }
     @media (max-width: 768px){
-      .footer-ssn{margin-top:18px}
+      .footer-ssn{margin-top:0}
     }
 
     /* ── Formulario de contacto ── */
@@ -450,23 +516,7 @@
     }
 
     /* ── Footer SSN ── */
-    .footer-ssn{
-      width:100%;
-      margin-top:0;
-      background:#efefef;
-      padding:0;
-      border-top:none;
-    }
-    .footer-ssn-inner{
-      max-width:1142px;
-      margin:0 auto;
-      display:block;
-    }
-    .footer-ssn-reference{
-      display:block;
-      width:100%;
-      height:auto;
-    }
+    /* (estilos definidos arriba junto a .brand-footer) */
 
     .form-success{
       margin-top:16px;
@@ -508,9 +558,6 @@
   <main>
     <section class="hero" aria-label="Presentación del producto">
       <div class="container">
-        <nav class="breadcrumbs" aria-label="Ruta de navegación">
-        
-        </nav>
         <div class="hero-grid">
           <div class="hero-copy">
             <h1>Seguro de Vida </h1>
@@ -532,7 +579,7 @@
       </div>
     </section>
 
-    <section id="cobertura" aria-labelledby="cobertura-titulo">
+    <section id="cobertura" aria-labelledby="cobertura-titulo" style="padding-top:40px">
       <div class="container cover-grid">
         <div class="card">
           <div class="section-head">
@@ -695,7 +742,7 @@
         <div class="final-cta">
           <div class="final-cta-grid">
             <div>
-              <h2 id="contacto-titulo">Asesoramiento personalizado</h2>
+              <h2 id="contacto-titulo" style="padding-top:4px">Asesoramiento personalizado</h2>
               <p>Consultá hoy por asesoramiento profesional. Te ayudamos a evaluar la mejor opción para vos y tu familia.</p>
             </div>
             <div class="contact-form-wrap">
@@ -714,12 +761,13 @@
                   <input type="tel" id="telefono" name="telefono" placeholder="Ej: +54 9 11 1234-5678" required autocomplete="tel">
                 </div>
                 <button type="submit" class="btn-submit">Quiero que me contacten</button>
+                <p id="form-error" class="form-note" style="display:none;color:#ffcccc;">Hubo un problema al enviar. Por favor intentá nuevamente.</p>
               </form>
               <p class="form-note">Tu información es confidencial. Sin compromiso.</p>
-            <div class="form-success" id="form-success" style="display:none">
-              <div class="form-success-icon">✓</div>
-              <p class="form-success-msg">¡Muchas gracias por su interés!<br>Un asesor lo contactará en breve.</p>
-            </div>
+              <div class="form-success" id="form-success" style="display:none">
+                <div class="form-success-icon">✓</div>
+                <p class="form-success-msg">¡Muchas gracias por su interés!<br>Un asesor lo contactará en breve.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -748,9 +796,11 @@
     (function(){
       var form = document.getElementById('contacto-form');
       var success = document.getElementById('form-success');
+      var errorMsg = document.getElementById('form-error');
       if(!form) return;
       form.addEventListener('submit', function(e){
         e.preventDefault();
+        if(errorMsg) errorMsg.style.display = 'none';
         var data = new FormData(form);
         fetch('https://formspree.io/f/xlgzbnpd', {
           method: 'POST',
@@ -760,13 +810,13 @@
         .then(function(res){
           if(res.ok){
             form.style.display = 'none';
-            success.style.display = 'block';
+            if(success) success.style.display = 'block';
           } else {
-            alert('Hubo un problema al enviar. Por favor intentá nuevamente.');
+            if(errorMsg) errorMsg.style.display = 'block';
           }
         })
         .catch(function(){
-          alert('Hubo un problema al enviar. Por favor intentá nuevamente.');
+          if(errorMsg) errorMsg.style.display = 'block';
         });
       });
     })();
