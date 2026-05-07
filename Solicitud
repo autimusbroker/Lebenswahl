@@ -390,7 +390,7 @@
         <img src="Logo Horizontal.png" alt="Lebenswahl Broker" style="height:80px;width:auto;" />
       </div>
       <a href="https://www.lebenswahl.com" class="back-link">
-        ← Cancela y volver al inicio
+        ← Cancelar y volver al inicio
       </a>
     </div>
   </header>
@@ -686,7 +686,7 @@
           </div>
 
           <div class="nav-btns">
-            <button class="btn-prev" onclick="goTo(3)">← Volver</button>
+            <button class="btn-prev" onclick="goTo(3)">← Cancelar y volver atrás </button>
             <button class="btn-submit-final" id="btn-enviar" onclick="enviarSolicitud()">📤 ENVIAR SOLICITUD</button>
           </div>
         </div>
