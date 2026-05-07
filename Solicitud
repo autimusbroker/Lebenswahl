@@ -471,13 +471,14 @@
           <div style="display:flex;gap:10px;align-items:flex-start;">
             <span style="font-size:20px;flex-shrink:0;margin-top:1px;">ℹ️</span>
             <div>
-              <strong style="display:block;font-size:14px;color:var(--blue);margin-bottom:6px;">Antes de comenzar, tené en cuenta:</strong>
-              Podés cancelar la solicitud en cualquier momento sin compromiso.
-              Será necesario que tengas tu DNI a mano para enviarnos una foto.
-              El envío de esta solicitud <strong>no implica aceptación ni inicio de cobertura.</strong><br>
-              AL finalizar un asesor te contactará para confirmar y completar el proceso.</strong>.<br>
-              
-            </div>
+  <ul style="font-size:14px; color:var(--blue); margin-bottom:6px; padding-left:20px;">
+    <li>Antes de comenzar, podés cancelar la solicitud en cualquier momento sin compromiso.</li>
+    <li>Será necesario que tengas tu DNI a mano para enviarnos una foto.</li>
+    <li>El envío de esta solicitud <strong>no implica aceptación ni inicio de cobertura.</strong></li>
+    <li>Al finalizar un asesor te contactará para confirmar y completar el proceso.</li>
+  </ul>
+</div>           
+           
           </div>
         </div>
 
