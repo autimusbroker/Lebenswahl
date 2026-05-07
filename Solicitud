@@ -689,7 +689,7 @@
             <span style="font-size:18px">🔒</span>
             <div>
               Tus datos serán tratados con confidencialidad y utilizados únicamente para gestionar esta solicitud preliminar.
-              <br><a href="politica-privacidad.html" style="color:var(--blue);font-weight:700">Política de privacidad →</a>
+              <br><a href="politica-privacidad" style="color:var(--blue);font-weight:700">Política de privacidad →</a>
             </div>
           </div>
 
