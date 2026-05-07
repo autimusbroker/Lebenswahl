@@ -689,7 +689,7 @@
             <span style="font-size:18px">🔒</span>
             <div>
               Tus datos serán tratados con confidencialidad y utilizados únicamente para gestionar esta solicitud preliminar.
-              <br><a href="politica-privacidad" style="color:var(--blue);font-weight:700">Política de privacidad →</a>
+              <br><a href="https://www.lebenswahl.com/politica-privacidad" onclick="saveState()" style="color:var(--blue);font-weight:700">Política de privacidad →</a>
             </div>
           </div>
 
@@ -1049,6 +1049,61 @@
     }
     origUpdate(step);
   };
+
+  // ─────────────────────────────────────────────
+  // GUARDAR Y RESTAURAR ESTADO (para política de privacidad)
+  // ─────────────────────────────────────────────
+  function saveState(){
+    var state = {
+      step: currentStep,
+      nombre:       document.getElementById('nombre').value,
+      telefono:     document.getElementById('telefono').value,
+      email:        document.getElementById('email').value,
+      estado_civil: document.getElementById('estado-civil').value,
+      sexo:         document.getElementById('sexo').value,
+      altura:       document.getElementById('altura').value,
+      peso:         document.getElementById('peso').value,
+      ocupacion:    document.getElementById('ocupacion').value,
+      tratamiento:  tratamientoVal,
+      ampliar:      document.getElementById('ampliar').value
+    };
+    sessionStorage.setItem('solicitud_state', JSON.stringify(state));
+  }
+
+  function restoreState(){
+    var raw = sessionStorage.getItem('solicitud_state');
+    if(!raw) return;
+    var s = JSON.parse(raw);
+    sessionStorage.removeItem('solicitud_state');
+
+    // Restaurar campos
+    document.getElementById('nombre').value       = s.nombre       || '';
+    document.getElementById('telefono').value     = s.telefono     || '';
+    document.getElementById('email').value        = s.email        || '';
+    document.getElementById('estado-civil').value = s.estado_civil || '';
+    document.getElementById('sexo').value         = s.sexo         || '';
+    document.getElementById('altura').value       = s.altura       || '';
+    document.getElementById('peso').value         = s.peso         || '';
+    document.getElementById('ocupacion').value    = s.ocupacion    || '';
+
+    if(s.tratamiento){
+      selectRadio('tratamiento', s.tratamiento);
+    }
+    if(s.ampliar){
+      document.getElementById('ampliar').value = s.ampliar;
+    }
+
+    // Ir al paso guardado (sin validar)
+    if(s.step && s.step > 1){
+      document.getElementById('panel-'+currentStep).classList.remove('visible');
+      currentStep = s.step;
+      document.getElementById('panel-'+currentStep).classList.add('visible');
+      updateStepper(currentStep);
+    }
+  }
+
+  // Ejecutar al cargar
+  window.addEventListener('load', restoreState);
 
   </script>
 
