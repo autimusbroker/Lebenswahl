@@ -689,7 +689,7 @@
             <span style="font-size:18px">🔒</span>
             <div>
               Tus datos serán tratados con confidencialidad y utilizados únicamente para gestionar esta solicitud preliminar.
-              <br><a href="https://www.lebenswahl.com/politica-privacidad" onclick="saveState()" style="color:var(--blue);font-weight:700">Política de privacidad →</a>
+              <br><a href="https://www.lebenswahl.com/politica-privacidad" target="_blank" rel="noopener" style="color:var(--blue);font-weight:700">Política de privacidad →</a>
             </div>
           </div>
 
@@ -932,8 +932,8 @@
     document.getElementById('sum-telefono').textContent = document.getElementById('telefono').value.trim();
     document.getElementById('sum-email').textContent = document.getElementById('email').value.trim();
     document.getElementById('sum-estado-civil').textContent = document.getElementById('estado-civil').value;
-    document.getElementById('sum-dni-frente').textContent = files.frente ? '✅ ' + files.frente.name : '—';
-    document.getElementById('sum-dni-dorso').textContent = files.dorso ? '✅ ' + files.dorso.name : '—';
+    document.getElementById('sum-dni-frente').textContent = files.frente ? '✅ ' + files.frente.name : (files._frente_name ? '✅ ' + files._frente_name : '—');
+    document.getElementById('sum-dni-dorso').textContent  = files.dorso  ? '✅ ' + files.dorso.name  : (files._dorso_name  ? '✅ ' + files._dorso_name  : '—');
     document.getElementById('sum-sexo').textContent = document.getElementById('sexo').value;
     document.getElementById('sum-altura').textContent = document.getElementById('altura').value + ' cm';
     document.getElementById('sum-peso').textContent = document.getElementById('peso').value + ' kg';
@@ -1065,7 +1065,9 @@
       peso:         document.getElementById('peso').value,
       ocupacion:    document.getElementById('ocupacion').value,
       tratamiento:  tratamientoVal,
-      ampliar:      document.getElementById('ampliar').value
+      ampliar:      document.getElementById('ampliar').value,
+      dni_frente:   files.frente ? files.frente.name : '',
+      dni_dorso:    files.dorso  ? files.dorso.name  : ''
     };
     sessionStorage.setItem('solicitud_state', JSON.stringify(state));
   }
@@ -1093,12 +1095,30 @@
       document.getElementById('ampliar').value = s.ampliar;
     }
 
+    // Guardar nombres de DNI para mostrar en resumen
+    // (los File objects no se pueden serializar, mostramos el nombre guardado)
+    if(s.dni_frente){
+      document.getElementById('prev-frente-name').textContent = s.dni_frente;
+      document.getElementById('prev-frente').classList.add('show');
+      document.getElementById('area-frente').style.display = 'none';
+      // Marcamos como "nombre conocido" para el resumen
+      files._frente_name = s.dni_frente;
+    }
+    if(s.dni_dorso){
+      document.getElementById('prev-dorso-name').textContent = s.dni_dorso;
+      document.getElementById('prev-dorso').classList.add('show');
+      document.getElementById('area-dorso').style.display = 'none';
+      files._dorso_name = s.dni_dorso;
+    }
+
     // Ir al paso guardado (sin validar)
     if(s.step && s.step > 1){
       document.getElementById('panel-'+currentStep).classList.remove('visible');
       currentStep = s.step;
       document.getElementById('panel-'+currentStep).classList.add('visible');
       updateStepper(currentStep);
+      // Si vuelve al paso 4, repoblar el resumen
+      if(currentStep === 4) populateSummary();
     }
   }
 
