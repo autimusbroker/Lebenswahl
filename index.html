@@ -538,6 +538,239 @@
       font-weight:700;
       line-height:1.5;
     }
+
+    /* ── Cotizador ── */
+    .btn-cotizador{
+      display:inline-block;
+      padding:15px 22px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:15px;
+      background:var(--blue);
+      color:#fff;
+      border:none;
+      cursor:pointer;
+      box-shadow:0 10px 24px rgba(0,55,129,.28);
+      transition:opacity .2s;
+      margin-bottom:10px;
+    }
+    .btn-cotizador:hover{opacity:.88}
+
+    .cotizador-panel{
+      display:none;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px 20px 18px;
+      box-shadow:var(--shadow);
+      margin-bottom:14px;
+      max-width:480px;
+    }
+    .cotizador-panel.open{display:block}
+    .cotizador-panel h3{
+      margin:0 0 14px;
+      font-size:16px;
+      font-weight:700;
+      color:var(--blue);
+    }
+    .cotizador-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+    .cotizador-field{
+      display:flex;
+      flex-direction:column;
+      gap:5px;
+      flex:1;
+      min-width:140px;
+    }
+    .cotizador-field label{
+      font-size:13px;
+      font-weight:700;
+      color:#334155;
+    }
+    .cotizador-field input{
+      padding:10px 13px;
+      border-radius:10px;
+      border:1px solid #c8d8ee;
+      background:#f7faff;
+      color:var(--text);
+      font-size:15px;
+      outline:none;
+      transition:border-color .2s;
+    }
+    .cotizador-field input:focus{border-color:var(--blue);background:#fff}
+    .btn-cotizar{
+      width:100%;
+      padding:13px 20px;
+      border-radius:999px;
+      border:none;
+      background:var(--blue);
+      color:#fff;
+      font-weight:700;
+      font-size:15px;
+      cursor:pointer;
+      box-shadow:0 8px 22px rgba(0,55,129,.25);
+      transition:opacity .2s;
+      margin-top:4px;
+    }
+    .btn-cotizar:disabled{
+      background:#9db2cc;
+      cursor:not-allowed;
+      box-shadow:none;
+    }
+    .btn-cotizar:not(:disabled):hover{opacity:.88}
+
+    /* Resultado cotizador */
+    /* ── Cotizador resultado ── */
+    #cotizador-resultado{
+      margin-top:28px;
+      display:none;
+    }
+    .resultado-intro{
+      margin:0 0 16px;
+      font-size:16px;
+      color:var(--blue);
+      font-weight:700;
+      letter-spacing:-.01em;
+    }
+
+    /* GRID: usa tabla para filas alineadas en todas las tarjetas */
+    .resultado-wrap{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:26px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    /* Fila de encabezados */
+    .rc-head{
+      display:grid;
+      grid-template-columns: 200px repeat(4,1fr);
+      background:var(--blue);
+      color:#fff;
+    }
+    .rc-head-label{
+      padding:18px 16px;
+      font-size:13px;
+      font-weight:700;
+      color:rgba(255,255,255,.7);
+      display:flex;
+      align-items:center;
+    }
+    .rc-plan-col{
+      padding:18px 12px 14px;
+      text-align:center;
+      border-left:1px solid rgba(255,255,255,.12);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+    }
+    .rc-plan-col.destacado{
+      background:rgba(255,255,255,.10);
+      position:relative;
+    }
+    .rc-plan-col.destacado::after{
+      content:"Más elegido";
+      position:absolute;
+      top:-1px;
+      left:50%;
+      transform:translateX(-50%);
+      background:#11a851;
+      color:#fff;
+      font-size:10px;
+      font-weight:700;
+      padding:3px 10px;
+      border-radius:0 0 8px 8px;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+    .rc-plan-nombre{
+      font-size:11px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      opacity:.8;
+      margin-bottom:6px;
+    }
+    .rc-plan-precio{
+      font-size:28px;
+      font-weight:700;
+      line-height:1;
+    }
+    .rc-plan-precio small{
+      font-size:13px;
+      font-weight:400;
+      opacity:.75;
+    }
+
+    /* Filas de cobertura */
+    .rc-row{
+      display:grid;
+      grid-template-columns: 200px repeat(4,1fr);
+      border-top:1px solid var(--line);
+    }
+    .rc-row:nth-child(even){
+      background:#f8fafd;
+    }
+    .rc-row-label{
+      padding:13px 16px;
+      font-size:13px;
+      color:#4a5a70;
+      font-weight:600;
+      display:flex;
+      align-items:center;
+      border-right:1px solid var(--line);
+      line-height:1.3;
+    }
+    .rc-row-val{
+      padding:13px 12px;
+      font-size:14px;
+      font-weight:700;
+      color:#1a2f4a;
+      text-align:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-left:1px solid #edf3fb;
+    }
+    .rc-row-val.destacado{
+      background:rgba(0,55,129,.04);
+    }
+
+    /* Leyenda */
+    .resultado-leyenda{
+      margin-top:12px;
+      font-size:11.5px;
+      color:#8a9bb0;
+      line-height:1.6;
+      padding:0 2px;
+    }
+
+    /* Responsive: tabla horizontal scrollable */
+    .resultado-scroll{
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      border-radius:26px;
+    }
+    .resultado-scroll .resultado-wrap{
+      min-width:680px;
+    }
+
+    @media(max-width:700px){
+      .rc-head, .rc-row{
+        grid-template-columns: 150px repeat(4,1fr);
+      }
+      .rc-plan-precio{ font-size:20px; }
+      .rc-row-label{ font-size:12px; padding:10px 10px; }
+      .rc-row-val{ font-size:12px; padding:10px 8px; }
+      .rc-head-label{ padding:14px 10px; }
+    }
   </style>
 </head>
 <body>
@@ -560,11 +793,32 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-copy">
-            <h1>Seguros de Vida </h1>
+            <h1>Seguro de Vida </h1>
             <p>Te presentamos <strong>Vida Protección de Allianz Argentina</strong>, una cobertura integral pensada para vos y tu familia. Seguridad. Tranquilidad. Futuro.</p>
-            <div class="hero-actions">
-              <a class="btn-primary" href="#contacto">Asesorate hoy</a>
-              <a class="btn-secondary" href="#cobertura">Más información</a>
+            <div class="hero-actions" style="flex-direction:column;align-items:flex-start;gap:10px;">
+              <!-- COTIZADOR -->
+              <button class="btn-cotizador" id="btn-abrir-cotizador" onclick="toggleCotizador()">🔍 Cotizá tu seguro ahora</button>
+              <div class="cotizador-panel" id="cotizador-panel">
+                <h3>Ingresá tus datos para cotizar</h3>
+                <div class="cotizador-row">
+                  <div class="cotizador-field">
+                    <label for="cot-dni">DNI</label>
+                    <input type="text" id="cot-dni" placeholder="Ej: 30123456" maxlength="8" oninput="checkCotizadorFields()">
+                  </div>
+                  <div class="cotizador-field">
+                    <label for="cot-edad">Edad</label>
+                    <input type="number" id="cot-edad" placeholder="18 – 64" min="18" max="64" oninput="checkCotizadorFields()">
+                  </div>
+                </div>
+                <button class="btn-cotizar" id="btn-cotizar" disabled onclick="mostrarCotizacion()">Cotizar</button>
+              </div>
+              <!-- Resultado -->
+              <div id="cotizador-resultado"></div>
+              <!-- Botones originales -->
+              <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <a class="btn-primary" href="#contacto">Asesorate hoy</a>
+                <a class="btn-secondary" href="#cobertura"> Ver cobertura </a>
+              </div>
             </div>
             <nav class="mini-nav" aria-label="Secciones de la página">
               <a href="#ventajas">Ventajas</a>
@@ -820,6 +1074,193 @@
         });
       });
     })();
+  </script>
+
+  <script>
+  // ── Tabla de precios por edad (Estándar, Plus, Premium, Exclusive) ──
+  var PRECIOS = {
+    18:{est:12.41,plu:24.46,pre:36.51,exc:48.57},
+    19:{est:12.75,plu:25.15,pre:37.54,exc:49.98},
+    20:{est:12.90,plu:25.44,pre:37.99,exc:50.53},
+    21:{est:12.95,plu:25.70,pre:38.13,exc:50.73},
+    22:{est:13.14,plu:25.93,pre:38.72,exc:51.51},
+    23:{est:13.19,plu:26.03,pre:38.87,exc:51.71},
+    24:{est:13.39,plu:26.42,pre:39.46,exc:52.50},
+    25:{est:13.58,plu:26.83,pre:40.08,exc:53.25},
+    26:{est:13.93,plu:27.50,pre:41.08,exc:54.66},
+    27:{est:14.36,plu:28.42,pre:42.41,exc:56.43},
+    28:{est:14.52,plu:28.68,pre:42.85,exc:57.03},
+    29:{est:14.57,plu:28.78,pre:42.99,exc:57.21},
+    30:{est:14.80,plu:29.43,pre:43.14,exc:58.32},
+    31:{est:14.84,plu:30.34,pre:43.81,exc:58.32},
+    32:{est:15.16,plu:30.22,pre:44.60,exc:59.54},
+    33:{est:15.38,plu:30.48,pre:45.45,exc:60.25},
+    34:{est:15.83,plu:31.30,pre:46.78,exc:62.25},
+    35:{est:16.42,plu:32.48,pre:48.25,exc:64.54},
+    36:{est:17.74,plu:35.13,pre:52.62,exc:69.91},
+    37:{est:17.74,plu:35.13,pre:52.62,exc:69.91},
+    38:{est:19.31,plu:38.27,pre:57.06,exc:73.08},
+    39:{est:19.31,plu:38.27,pre:57.06,exc:73.08},
+    40:{est:20.20,plu:40.04,pre:59.89,exc:79.73},
+    41:{est:21.46,plu:42.58,pre:63.66,exc:84.88},
+    42:{est:22.78,plu:45.21,pre:66.95,exc:90.05},
+    43:{est:24.25,plu:48.16,pre:72.08,exc:95.96},
+    44:{est:25.90,plu:50.93,pre:76.14,exc:100.88},
+    45:{est:28.20,plu:55.86,pre:83.44,exc:111.25},
+    46:{est:30.20,plu:60.04,pre:89.88,exc:119.72},
+    47:{est:34.52,plu:68.68,pre:102.84,exc:137.01},
+    48:{est:38.10,plu:75.82,pre:113.06,exc:146.20},
+    49:{est:39.91,plu:78.60,pre:117.22,exc:146.20},
+    50:{est:42.84,plu:85.33,pre:127.81,exc:170.30},
+    51:{est:47.41,plu:93.81,pre:140.43,exc:186.98},
+    52:{est:55.90,plu:110.63,pre:166.99,exc:222.54},
+    53:{est:55.90,plu:111.45,pre:166.99,exc:222.54},
+    54:{est:56.90,plu:111.45,pre:166.99,exc:222.54},
+    55:{est:67.59,plu:134.82,pre:202.05,exc:269.29},
+    56:{est:74.07,plu:147.78,pre:221.50,exc:295.21},
+    57:{est:74.07,plu:147.78,pre:221.50,exc:295.21},
+    58:{est:98.59,plu:159.96,pre:239.76,exc:319.56},
+    59:{est:93.90,plu:172.82,pre:259.06,exc:345.08},
+    60:{est:93.90,plu:187.45,pre:281.01,exc:374.56},
+    61:{est:93.90,plu:187.45,pre:281.01,exc:374.56},
+    62:{est:123.57,plu:248.78,pre:370.00,exc:493.22},
+    63:{est:135.11,plu:269.85,pre:404.63,exc:539.17},
+    64:{est:135.11,plu:269.85,pre:404.63,exc:539.17}
+  };
+
+  var PLANES = [
+    {
+      key:'est', nombre:'Plan Estándar', destacado:false,
+      coberturas:[
+        {label:'Muerte',val:'50.000 USD'},
+        {label:'Muerte por accidente',val:'50.000 USD'},
+        {label:'Invalidez total/parcial por accidente',val:'50.000 USD'},
+        {label:'Invalidez temporaria (renta mensual)',val:'100 USD'},
+        {label:'Trasplante de órganos',val:'10.000 USD'},
+        {label:'Anticipo por enfermedad',val:'12.500 USD'},
+        {label:'Enfermedades graves',val:'5.000 USD'},
+        {label:'Renta diaria por internación',val:'10 USD'}
+      ]
+    },
+    {
+      key:'plu', nombre:'Plan Plus', destacado:false,
+      coberturas:[
+        {label:'Muerte',val:'100.000 USD'},
+        {label:'Muerte por accidente',val:'100.000 USD'},
+        {label:'Invalidez total/parcial por accidente',val:'100.000 USD'},
+        {label:'Invalidez temporaria (renta mensual)',val:'200 USD'},
+        {label:'Trasplante de órganos',val:'10.000 USD'},
+        {label:'Anticipo por enfermedad',val:'25.000 USD'},
+        {label:'Enfermedades graves',val:'10.000 USD'},
+        {label:'Renta diaria por internación',val:'20 USD'}
+      ]
+    },
+    {
+      key:'pre', nombre:'Plan Premium', destacado:true,
+      coberturas:[
+        {label:'Muerte',val:'150.000 USD'},
+        {label:'Muerte por accidente',val:'150.000 USD'},
+        {label:'Invalidez total/parcial por accidente',val:'150.000 USD'},
+        {label:'Invalidez temporaria (renta mensual)',val:'300 USD'},
+        {label:'Trasplante de órganos',val:'10.000 USD'},
+        {label:'Anticipo por enfermedad',val:'37.500 USD'},
+        {label:'Enfermedades graves',val:'15.000 USD'},
+        {label:'Renta diaria por internación',val:'30 USD'}
+      ]
+    },
+    {
+      key:'exc', nombre:'Plan Exclusive', destacado:false,
+      coberturas:[
+        {label:'Muerte',val:'200.000 USD'},
+        {label:'Muerte por accidente',val:'200.000 USD'},
+        {label:'Invalidez total/parcial por accidente',val:'200.000 USD'},
+        {label:'Invalidez temporaria (renta mensual)',val:'400 USD'},
+        {label:'Trasplante de órganos',val:'10.000 USD'},
+        {label:'Anticipo por enfermedad',val:'50.000 USD'},
+        {label:'Enfermedades graves',val:'20.000 USD'},
+        {label:'Renta diaria por internación',val:'40 USD'}
+      ]
+    }
+  ];
+
+  function toggleCotizador(){
+    var panel = document.getElementById('cotizador-panel');
+    panel.classList.toggle('open');
+    if(!panel.classList.contains('open')){
+      document.getElementById('cotizador-resultado').style.display='none';
+    }
+  }
+
+  function checkCotizadorFields(){
+    var dni = document.getElementById('cot-dni').value.trim();
+    var edad = parseInt(document.getElementById('cot-edad').value);
+    var btn = document.getElementById('btn-cotizar');
+    btn.disabled = !(dni.length >= 7 && edad >= 18 && edad <= 64);
+  }
+
+  function fmt(n){
+    return n.toFixed(2).replace('.',',');
+  }
+
+  function mostrarCotizacion(){
+    var edad = parseInt(document.getElementById('cot-edad').value);
+    var dni  = document.getElementById('cot-dni').value.trim();
+    var precios = PRECIOS[edad];
+    if(!precios) return;
+
+    // ── Envío silencioso a Formspree para registrar cada cotización ──
+    var formData = new FormData();
+    formData.append('_subject', 'Nueva cotización web');
+    formData.append('DNI', dni);
+    formData.append('Edad', edad);
+    formData.append('Fecha', new Date().toLocaleString('es-AR'));
+    fetch('https://formspree.io/f/xlgzbnpd', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    // Encabezados de planes
+    var headCols = PLANES.map(function(p){
+      var precio = precios[p.key];
+      return '<div class="rc-plan-col'+(p.destacado?' destacado':'')+'">'+
+        '<div class="rc-plan-nombre">'+p.nombre+'</div>'+
+        '<div class="rc-plan-precio">USD '+fmt(precio)+'<small> / mes</small></div>'+
+      '</div>';
+    }).join('');
+
+    var headRow = '<div class="rc-head">'+
+      '<div class="rc-head-label">Cobertura</div>'+
+      headCols+
+    '</div>';
+
+    // Filas de cobertura (todas las coberturas del primer plan, son iguales en cantidad)
+    var coberturasLabels = PLANES[0].coberturas.map(function(c){ return c.label; });
+    var dataRows = coberturasLabels.map(function(label, i){
+      var vals = PLANES.map(function(p, pi){
+        return '<div class="rc-row-val'+(p.destacado?' destacado':'')+'">'+p.coberturas[i].val+'</div>';
+      }).join('');
+      return '<div class="rc-row">'+
+        '<div class="rc-row-label">'+label+'</div>'+
+        vals+
+      '</div>';
+    }).join('');
+
+    var res = document.getElementById('cotizador-resultado');
+    res.innerHTML =
+      '<p class="resultado-intro">Tu cotización · '+edad+' años</p>'+
+      '<div class="resultado-scroll">'+
+        '<div class="resultado-wrap">'+
+          headRow+
+          dataRows+
+        '</div>'+
+      '</div>'+
+      '<p class="resultado-leyenda">* Los valores indicados corresponden al premio mensual en dólares estadounidenses calculado en función de la edad declarada. Los precios son de carácter informativo y pueden sufrir modificaciones sin previo aviso. Consultá con un asesor para confirmar condiciones vigentes.</p>';
+    res.style.display='block';
+
+    // scroll suave al resultado
+    setTimeout(function(){ res.scrollIntoView({behavior:'smooth', block:'start'}); }, 80);
+  }
   </script>
 </body>
 </html>
