@@ -515,8 +515,49 @@
       text-align:center;
     }
 
-    /* ── Footer SSN ── */
-    /* (estilos definidos arriba junto a .brand-footer) */
+    /* ── Botón Contratar plan ── */
+    .btn-contratar{
+      display:block;
+      width:100%;
+      padding:13px 10px;
+      border-radius:999px;
+      border:none;
+      background:var(--green);
+      color:#fff;
+      font-weight:700;
+      font-size:13px;
+      text-align:center;
+      cursor:pointer;
+      text-decoration:none;
+      box-shadow:0 6px 18px rgba(17,168,81,.28);
+      transition:opacity .2s;
+      white-space:nowrap;
+    }
+    .btn-contratar:hover{opacity:.88}
+
+    /* Fila de botones desktop — debajo de la tabla */
+    .rc-btns-row{
+      display:grid;
+      grid-template-columns: 200px repeat(4,1fr);
+      background:#f0f7ff;
+      border-top:1px solid var(--line);
+    }
+    .rc-btns-row .rc-btn-empty{
+      padding:14px 16px;
+    }
+    .rc-btns-row .rc-btn-cell{
+      padding:14px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-left:1px solid var(--line);
+    }
+
+    /* Mobile: botón al pie de cada tarjeta */
+    .mc-footer{
+      padding:12px 14px 14px;
+      border-top:1px solid #edf2fb;
+    }
 
     .form-success{
       margin-top:16px;
@@ -746,7 +787,7 @@
     /* Leyenda */
     .resultado-leyenda{
       margin-top:12px;
-      font-size:10px;
+      font-size:8px;
       color:#8a9bb0;
       line-height:1.6;
       padding:0 2px;
@@ -772,7 +813,7 @@
       .mobile-cards{ display:flex !important; }
 
       .resultado-leyenda{
-        font-size:9.5px;
+        font-size:7.5px;
         margin-top:10px;
       }
     }
@@ -1331,10 +1372,10 @@
       headCols+
     '</div>';
 
-    // Filas de cobertura (todas las coberturas del primer plan, son iguales en cantidad)
+    // Filas de cobertura
     var coberturasLabels = PLANES[0].coberturas.map(function(c){ return c.label; });
     var dataRows = coberturasLabels.map(function(label, i){
-      var vals = PLANES.map(function(p, pi){
+      var vals = PLANES.map(function(p){
         return '<div class="rc-row-val'+(p.destacado?' destacado':'')+'">'+p.coberturas[i].val+'</div>';
       }).join('');
       return '<div class="rc-row">'+
@@ -1342,6 +1383,16 @@
         vals+
       '</div>';
     }).join('');
+
+    // Fila de botones desktop — alineada perfectamente bajo cada columna
+    var btnsRow = '<div class="rc-btns-row">'+
+      '<div class="rc-btn-empty"></div>'+
+      PLANES.map(function(){
+        return '<div class="rc-btn-cell">'+
+          '<a href="https://www.lebenswahl.com/Solicitud" class="btn-contratar">Contratar plan</a>'+
+        '</div>';
+      }).join('')+
+    '</div>';
 
     // Tarjetas mobile
     var mobileCards = PLANES.map(function(p){
@@ -1360,6 +1411,9 @@
           '<div class="mc-precio">USD '+fmt(precio)+'<small>/ mes</small></div>'+
         '</div>'+
         '<div class="mc-body">'+rows+'</div>'+
+        '<div class="mc-footer">'+
+          '<a href="https://www.lebenswahl.com/Solicitud" class="btn-contratar">Contratar plan</a>'+
+        '</div>'+
       '</div>';
     }).join('');
 
@@ -1369,7 +1423,7 @@
     res.innerHTML =
       '<p class="resultado-intro">Tu cotización · '+edad+' años</p>'+
       '<div class="resultado-scroll">'+
-        '<div class="resultado-wrap">'+headRow+dataRows+'</div>'+
+        '<div class="resultado-wrap">'+headRow+dataRows+btnsRow+'</div>'+
       '</div>'+
       '<div class="mobile-cards">'+mobileCards+'</div>'+
       leyenda;
