@@ -467,7 +467,7 @@
         </div>
 
         <!-- ─── AVISO LEGAL PREVIO ─── -->
-        <div style="background:var(--blue-soft);border:1px solid #c0d5f0;border-radius:18px;padding:18px 20px;margin-bottom:22px;font-size:13px;color:#2c4a6e;line-height:1.7;">
+        <div id="aviso-previo" style="background:var(--blue-soft);border:1px solid #c0d5f0;border-radius:18px;padding:18px 20px;margin-bottom:22px;font-size:13px;color:#2c4a6e;line-height:1.7;">
           <div style="display:flex;gap:10px;align-items:flex-start;">
             <span style="font-size:20px;flex-shrink:0;margin-top:1px;">ℹ️</span>
             <div>
@@ -513,7 +513,7 @@
           </div>
 
           <div class="nav-btns">
-            <button class="btn-next" onclick="goTo(2)">Siguiente → DNI</button>
+            <button class="btn-next" onclick="document.getElementById('aviso-previo').style.display='none'; goTo(2)">Siguiente → DNI</button>
           </div>
         </div>
 
@@ -1018,6 +1018,7 @@
       if(res.ok){
         // Éxito
         document.getElementById('panel-4').classList.remove('visible');
+        document.getElementById('aviso-previo').style.display='none';
         document.getElementById('success-panel').style.display='block';
         document.getElementById('ref-display').textContent = referencia;
         updateStepper(5); // Marca todos como done
