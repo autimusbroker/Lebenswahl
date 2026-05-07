@@ -470,14 +470,15 @@
         <div id="aviso-previo" style="background:var(--blue-soft);border:1px solid #c0d5f0;border-radius:18px;padding:18px 20px;margin-bottom:22px;font-size:13px;color:#2c4a6e;line-height:1.7;">
           <div style="display:flex;gap:10px;align-items:flex-start;">
             <span style="font-size:20px;flex-shrink:0;margin-top:1px;">ℹ️</span>
-            <div>
+           <div>
+  <p style="font-size:14px; color:var(--blue); margin-bottom:6px; font-weight:bold;">Antes de comenzar:</p>
   <ul style="font-size:14px; color:var(--blue); margin-bottom:6px; padding-left:20px;">
-    <li>Antes de comenzar, podés cancelar la solicitud en cualquier momento sin compromiso.</li>
+    <li>Podés cancelar la solicitud en cualquier momento sin compromiso.</li>
     <li>Será necesario que tengas tu DNI a mano para enviarnos una foto.</li>
     <li>El envío de esta solicitud <strong>no implica aceptación ni inicio de cobertura.</strong></li>
     <li>Al finalizar un asesor te contactará para confirmar y completar el proceso.</li>
   </ul>
-</div>           
+</div>
            
           </div>
         </div>
