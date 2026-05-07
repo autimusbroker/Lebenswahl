@@ -403,21 +403,7 @@
         <h1>Solicitud preliminar de Seguro de Vida</h1>
         <p>Completá tus datos para que un asesor pueda contactarte y avanzar con la propuesta.</p>
 
-        <!-- Datos del Productor Asesor -->
-        <div class="productor-card">
-          <div class="productor-item">
-            <strong>Productor Asesor de Seguros</strong>
-            Lebenswahl Broker
-          </div>
-          <div class="productor-item">
-            <strong>Matrícula SSN</strong>
-            102339
-          </div>
-          <div class="productor-item">
-            <strong>WhatsApp / Teléfono</strong>
-            011 2783-2498
-          </div>
-        </div>
+          
 
       </div>
     </div>
