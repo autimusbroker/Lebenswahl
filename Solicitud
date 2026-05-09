@@ -452,7 +452,7 @@
           <div class="success-title">¡Solicitud enviada correctamente!</div>
           <p class="success-msg">
             Un asesor se contactará a la brevedad para validar la información<br>
-            y continuar el proceso de cotización y emisión.
+            y continuar el proceso de emisión.
           </p>
           <div class="success-ref" id="ref-display"></div>
           <br><br>
