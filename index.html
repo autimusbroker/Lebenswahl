@@ -18,15 +18,12 @@
       var s1 = document.createElement('script');
       s1.async = true;
       s1.src = 'https://www.googletagmanager.com/gtag/js?id=G-1BTGZFDTYG';
+      s1.onload = function(){
+        gtag('js', new Date());
+        gtag('config', 'G-1BTGZFDTYG');
+        gtag('config', 'AW-11350503688');
+      };
       document.head.appendChild(s1);
-      gtag('js', new Date());
-      gtag('config', 'G-1BTGZFDTYG');
-
-      var s2 = document.createElement('script');
-      s2.async = true;
-      s2.src = 'https://www.googletagmanager.com/gtag/js?id=AW-11350503688';
-      document.head.appendChild(s2);
-      gtag('config', 'AW-11350503688');
     }
     // Si ya aceptó cookies en una visita anterior, cargar analytics de inmediato
     if(localStorage.getItem('lw_cookies') === 'accepted') loadAnalytics();
@@ -181,6 +178,7 @@
       color:var(--text);
       background:#f6f8fc;
       line-height:1.45;
+      padding-bottom:70px;
     }
     a{text-decoration:none;color:inherit}
     img{max-width:100%;display:block}
@@ -711,7 +709,6 @@
     }
     .btn-cotizar:not(:disabled):hover{opacity:.88}
 
-    /* Resultado cotizador */
     /* ── Cotizador resultado ── */
     #cotizador-resultado{
       margin-top:28px;
@@ -834,7 +831,7 @@
     /* Leyenda */
     .resultado-leyenda{
       margin-top:12px;
-      font-size:8px;
+      font-size:11px;
       color:#8a9bb0;
       line-height:1.6;
       padding:0 2px;
@@ -860,7 +857,7 @@
       .mobile-cards{ display:flex !important; }
 
       .resultado-leyenda{
-        font-size:7.5px;
+        font-size:10px;
         margin-top:10px;
       }
     }
@@ -1415,7 +1412,7 @@
         var val = sel.value;
         var h16 = document.getElementById('h16');
         var horSel = document.getElementById('horario-entrevista');
-        var esOcupado = val.startsWith('lunes') || val.startsWith('miércoles') || val.startsWith('viernes');
+        var esOcupado = val.startsWith('lunes') || val.toLowerCase().indexOf('mi') === 0 && val.toLowerCase().indexOf('rcoles') > 0 || val.startsWith('viernes');
         if(esOcupado){
           h16.disabled = true;
           h16.textContent = '16:00 hs (ocupado)';
@@ -1438,13 +1435,19 @@
         e.preventDefault();
         if(errorMsg) errorMsg.style.display = 'none';
 
-        // Validaciones mínimas
         var nombre = form.querySelector('#nombre').value.trim();
         var email  = form.querySelector('#email').value.trim();
         var tel    = form.querySelector('#telefono').value.trim();
         var fecha  = document.getElementById('fecha-entrevista').value;
         var hora   = document.getElementById('horario-entrevista').value;
-        if(!nombre || !email || !tel || !fecha || !hora){ return; }
+
+        if(!nombre || !email || !tel || !fecha || !hora){
+          if(errorMsg){
+            errorMsg.textContent = 'Por favor completá todos los campos antes de confirmar.';
+            errorMsg.style.display = 'block';
+          }
+          return;
+        }
 
         var data = new FormData(form);
         // _replyto le indica a Formspree el mail al que enviar el auto-reply
