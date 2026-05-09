@@ -10,22 +10,27 @@
   <meta name="keywords" content="seguro de vida argentina, contratar seguro de vida, cotizar seguro de vida, broker seguros de vida, seguro de vida en dolares, seguro de vida familiar, cobertura por muerte, invalidez por accidente, enfermedades graves seguro, seguro de vida buenos aires, seguro de vida online, asesor seguros de vida, seguro de vida allianz argentina" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BTGZFDTYG"></script>
+  <!-- Google Analytics + Ads — se cargan solo si el usuario acepta cookies -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-1BTGZFDTYG');
+    function loadAnalytics(){
+      var s1 = document.createElement('script');
+      s1.async = true;
+      s1.src = 'https://www.googletagmanager.com/gtag/js?id=G-1BTGZFDTYG';
+      document.head.appendChild(s1);
+      gtag('js', new Date());
+      gtag('config', 'G-1BTGZFDTYG');
+
+      var s2 = document.createElement('script');
+      s2.async = true;
+      s2.src = 'https://www.googletagmanager.com/gtag/js?id=AW-11350503688';
+      document.head.appendChild(s2);
+      gtag('config', 'AW-11350503688');
+    }
+    // Si ya aceptó cookies en una visita anterior, cargar analytics de inmediato
+    if(localStorage.getItem('lw_cookies') === 'accepted') loadAnalytics();
   </script>
-  <!-- Google Ads -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11350503688"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-11350503688');
-</script>
   <meta name="author" content="Lebenswahl Broker" />
   <link rel="canonical" href="https://www.lebenswahl.com" />
 
@@ -951,9 +956,76 @@
       white-space:nowrap;
       flex-shrink:0;
     }
+
+    /* ── Banner de cookies ── */
+    #cookie-banner{
+      position:fixed;
+      bottom:0;left:0;right:0;
+      z-index:9999;
+      background:#1a2a40;
+      color:#e8edf5;
+      padding:16px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+      font-size:14px;
+      box-shadow:0 -4px 20px rgba(0,0,0,.25);
+    }
+    #cookie-banner.hidden{display:none}
+    #cookie-banner p{margin:0;flex:1;min-width:220px;line-height:1.5}
+    #cookie-banner a{color:#7eb8ff;text-decoration:underline}
+    .cookie-btns{display:flex;gap:10px;flex-shrink:0;}
+    .btn-cookie-accept{
+      padding:10px 20px;border-radius:999px;border:none;
+      background:var(--green);color:#fff;font-weight:700;font-size:14px;cursor:pointer;
+      white-space:nowrap;
+    }
+    .btn-cookie-cancel{
+      padding:10px 20px;border-radius:999px;border:none;
+      background:rgba(255,255,255,.12);color:#d0daea;font-weight:700;font-size:14px;cursor:pointer;
+      white-space:nowrap;
+    }
+    .btn-cookie-accept:hover{opacity:.88}
+    .btn-cookie-cancel:hover{background:rgba(255,255,255,.20)}
+
+    /* ── Estilos calendario / horario (agenda entrevista) ── */
+    .agenda-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    @media(max-width:500px){.agenda-grid{grid-template-columns:1fr}}
+    .form-group select{
+      padding:11px 14px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.30);
+      background:rgba(255,255,255,.15);
+      color:#fff;
+      font-size:15px;
+      outline:none;
+      transition:border-color .2s;
+      -webkit-appearance:none;
+      appearance:none;
+      cursor:pointer;
+    }
+    .form-group select:focus{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.22)}
+    .form-group select option{background:#1a2a40;color:#fff}
+    .form-group select option:disabled{color:#888}
+    .form-group select option.ocupado{color:#888 !important}
   </style>
 </head>
 <body>
+
+  <!-- ── Banner de cookies ── -->
+  <div id="cookie-banner">
+    <p>🍪 <strong>Valoramos tu privacidad.</strong> Utilizamos cookies para la recolección de información y la mejora del servicio.</p>
+    <div class="cookie-btns">
+      <button class="btn-cookie-accept" onclick="cookieAccept()">Aceptar</button>
+      <button class="btn-cookie-cancel" onclick="cookieCancel()">Rechazar</button>
+    </div>
+  </div>
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="brand">
@@ -990,13 +1062,19 @@
                     <input type="number" id="cot-edad" placeholder="18 – 64" min="18" max="64" oninput="checkCotizadorFields()">
                   </div>
                 </div>
+                <div class="cotizador-row">
+                  <div class="cotizador-field" style="flex:1;min-width:100%">
+                    <label for="cot-tel">Teléfono <span style="color:#e05050;font-size:12px" id="cot-tel-error"></span></label>
+                    <input type="tel" id="cot-tel" placeholder="Ej: +54 9 11 1234-5678" oninput="checkCotizadorFields()">
+                  </div>
+                </div>
                 <button class="btn-cotizar" id="btn-cotizar" disabled onclick="mostrarCotizacion()">Cotizar</button>
               </div>
               <!-- Resultado -->
               <div id="cotizador-resultado"></div>
               <!-- Botones originales -->
               <div style="display:flex;gap:12px;flex-wrap:wrap;">
-                <a class="btn-primary" href="#contacto">Asesorate hoy</a>
+                <a class="btn-primary" href="#contacto">Agenda una entrevista</a>
                 <a class="btn-secondary" href="#cobertura">Ver cobertura</a>
               </div>
             </div>
@@ -1196,8 +1274,8 @@
         <div class="final-cta">
           <div class="final-cta-grid">
             <div>
-              <h2 id="contacto-titulo" style="padding-top:4px">Asesoramiento personalizado</h2>
-              <p>Consultá hoy por asesoramiento profesional. Te ayudamos a evaluar la mejor opción para vos y tu familia.</p>
+              <h2 id="contacto-titulo" style="padding-top:4px">Agendá tu entrevista</h2>
+              <p>Elegí el día y horario que más te convenga. Un asesor te confirmará la entrevista por mensaje o mail.</p>
               <div style="margin-top:18px;display:flex;flex-direction:column;gap:10px;">
                 <a href="https://wa.me/5491127832498" target="_blank" rel="noopener"
                   style="display:flex;align-items:center;gap:10px;color:#fff;font-size:15px;font-weight:600;text-decoration:none;opacity:.92;">
@@ -1214,27 +1292,45 @@
               </div>
             </div>
             <div class="contact-form-wrap">
-              <h3 class="form-title">Completá tus datos y te contactamos</h3>
+              <h3 class="form-title">Agendá tu entrevista con un asesor</h3>
               <form class="contact-form" id="contacto-form" novalidate>
+                <input type="hidden" name="_subject" value="Nueva solicitud de entrevista - Lebenswahl">
                 <div class="form-group">
                   <label for="nombre">Nombre completo</label>
                   <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required autocomplete="name">
                 </div>
                 <div class="form-group">
-                  <label for="edad">Edad</label>
-                  <input type="number" id="edad" name="edad" placeholder="Tu edad" min="18" max="64" required>
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" placeholder="tu@email.com" required autocomplete="email">
                 </div>
                 <div class="form-group">
                   <label for="telefono">Teléfono de contacto</label>
                   <input type="tel" id="telefono" name="telefono" placeholder="Ej: +54 9 11 1234-5678" required autocomplete="tel">
                 </div>
-                <button type="submit" class="btn-submit">Quiero que me contacten</button>
+                <div class="agenda-grid">
+                  <div class="form-group">
+                    <label for="fecha-entrevista">Día de entrevista</label>
+                    <select id="fecha-entrevista" name="Día de entrevista" required>
+                      <option value="" disabled selected>Elegí un día</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="horario-entrevista">Horario</label>
+                    <select id="horario-entrevista" name="Horario de entrevista" required>
+                      <option value="" disabled selected>Elegí un horario</option>
+                      <option value="10:00 hs" id="h10">10:00 hs</option>
+                      <option value="14:00 hs" id="h14">14:00 hs</option>
+                      <option value="16:00 hs" id="h16">16:00 hs</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="btn-submit">Confirmar entrevista</button>
                 <p id="form-error" class="form-note" style="display:none;color:#ffcccc;">Hubo un problema al enviar. Por favor intentá nuevamente.</p>
               </form>
               <p class="form-note">Tu información es confidencial. Sin compromiso.</p>
               <div class="form-success" id="form-success" style="display:none">
                 <div class="form-success-icon">✓</div>
-                <p class="form-success-msg">¡Muchas gracias por su interés!<br>Un asesor lo contactará en breve.</p>
+                <p class="form-success-msg">¡Muchas gracias por tu interés!<br>Un asesor te estará confirmando la entrevista por mensaje o mail.</p>
               </div>
             </div>
           </div>
@@ -1274,29 +1370,105 @@
   </footer>
 
   <script>
+    // ── Cookies ──
     (function(){
+      var banner = document.getElementById('cookie-banner');
+      if(localStorage.getItem('lw_cookies')) banner.classList.add('hidden');
+    })();
+    function cookieAccept(){
+      localStorage.setItem('lw_cookies','accepted');
+      document.getElementById('cookie-banner').classList.add('hidden');
+      loadAnalytics();
+    }
+    function cookieCancel(){
+      localStorage.setItem('lw_cookies','declined');
+      document.getElementById('cookie-banner').classList.add('hidden');
+    }
+  </script>
+
+  <script>
+    // ── Formulario agenda entrevista ──
+    (function(){
+
+      // Generar días hábiles 2026 (lunes a viernes)
+      var sel = document.getElementById('fecha-entrevista');
+      var meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+      var dias  = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+      var hoy   = new Date();
+      hoy.setHours(0,0,0,0);
+      var d = new Date(2026,4,1); // 1 mayo 2026
+      var fin = new Date(2026,11,31);
+      while(d <= fin){
+        var dow = d.getDay();
+        if(dow >= 1 && dow <= 5){ // lun-vie
+          var opt = document.createElement('option');
+          var label = dias[dow]+' '+d.getDate()+' de '+meses[d.getMonth()]+' 2026';
+          opt.value = label;
+          opt.textContent = label;
+          sel.appendChild(opt);
+        }
+        d.setDate(d.getDate()+1);
+      }
+
+      // Bloquear 16hs en lunes, miércoles y viernes
+      sel.addEventListener('change', function(){
+        var val = sel.value;
+        var h16 = document.getElementById('h16');
+        var horSel = document.getElementById('horario-entrevista');
+        var esOcupado = val.startsWith('lunes') || val.startsWith('miércoles') || val.startsWith('viernes');
+        if(esOcupado){
+          h16.disabled = true;
+          h16.textContent = '16:00 hs (ocupado)';
+          h16.classList.add('ocupado');
+          if(horSel.value === '16:00 hs') horSel.value = '';
+        } else {
+          h16.disabled = false;
+          h16.textContent = '16:00 hs';
+          h16.classList.remove('ocupado');
+        }
+      });
+
+      // Envío del formulario
       var form = document.getElementById('contacto-form');
       var success = document.getElementById('form-success');
       var errorMsg = document.getElementById('form-error');
       if(!form) return;
+
       form.addEventListener('submit', function(e){
         e.preventDefault();
         if(errorMsg) errorMsg.style.display = 'none';
+
+        // Validaciones mínimas
+        var nombre = form.querySelector('#nombre').value.trim();
+        var email  = form.querySelector('#email').value.trim();
+        var tel    = form.querySelector('#telefono').value.trim();
+        var fecha  = document.getElementById('fecha-entrevista').value;
+        var hora   = document.getElementById('horario-entrevista').value;
+        if(!nombre || !email || !tel || !fecha || !hora){ return; }
+
         var data = new FormData(form);
+        // _replyto le indica a Formspree el mail al que enviar el auto-reply
+        data.set('_replyto', email);
+
         fetch('https://formspree.io/f/xlgzbnpd', {
           method: 'POST',
           body: data,
           headers: { 'Accept': 'application/json' }
         })
         .then(function(res){
-          if(res.ok){
+          return res.json().then(function(json){ return {ok: res.ok, json: json}; });
+        })
+        .then(function(r){
+          if(r.ok){
             form.style.display = 'none';
             if(success) success.style.display = 'block';
           } else {
+            console.error('Formspree error:', r.json);
             if(errorMsg) errorMsg.style.display = 'block';
           }
         })
-        .catch(function(){
+        .catch(function(err){
+          console.error('Fetch error:', err);
           if(errorMsg) errorMsg.style.display = 'block';
         });
       });
@@ -1421,8 +1593,16 @@
   function checkCotizadorFields(){
     var dni = document.getElementById('cot-dni').value.trim();
     var edad = parseInt(document.getElementById('cot-edad').value);
+    var tel  = document.getElementById('cot-tel').value.trim();
+    var telOk = /^[\d\s\+\-\(\)]{7,20}$/.test(tel);
+    var errEl = document.getElementById('cot-tel-error');
+    if(tel && !telOk){
+      errEl.textContent = '— formato inválido';
+    } else {
+      errEl.textContent = '';
+    }
     var btn = document.getElementById('btn-cotizar');
-    btn.disabled = !(dni.length >= 7 && edad >= 18 && edad <= 64);
+    btn.disabled = !(dni.length >= 7 && edad >= 18 && edad <= 64 && telOk);
   }
 
   function fmt(n){
@@ -1440,6 +1620,7 @@
     formData.append('_subject', 'Nueva cotización web');
     formData.append('DNI', dni);
     formData.append('Edad', edad);
+    formData.append('Teléfono', document.getElementById('cot-tel').value.trim());
     formData.append('Fecha', new Date().toLocaleString('es-AR'));
     fetch('https://formspree.io/f/xlgzbnpd', {
       method: 'POST',
