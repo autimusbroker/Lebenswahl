@@ -14,26 +14,30 @@
     gtag('js', new Date());
     gtag('config', 'G-1BTGZFDTYG');
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --blue:#003781;
-      --blue-dark:#002b66;
-      --blue-soft:#eaf1fb;
-      --blue-mid:#2563a8;
-      --text:#1f2a37;
+      --blue:#002d6e;
+      --blue-dark:#001e4d;
+      --blue-soft:#eef3fb;
+      --blue-mid:#014099;
+      --text:#1a2535;
       --muted:#5a6a7d;
-      --line:#d9e3f2;
+      --line:#dce6f4;
       --white:#ffffff;
-      --green:#11a851;
-      --green-dark:#0d8040;
-      --red:#c0392b;
-      --shadow:0 18px 50px rgba(0,32,84,.10);
+      --gold:#b8975a;
+      --green:#0e8c43;
+      --shadow:0 20px 60px rgba(0,28,80,.09);
+      --shadow-sm:0 4px 20px rgba(0,28,80,.07);
       --radius:24px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{
-      font-family:Arial,Helvetica,sans-serif;
+      font-family:'Raleway', sans-serif;
       color:var(--text);
       background:#f6f8fc;
       line-height:1.45;
@@ -52,15 +56,7 @@
       display:flex;align-items:center;justify-content:space-between;
       gap:18px;min-height:72px;
     }
-    .brand{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--blue);}
-    .brand-mark{
-      width:40px;height:40px;border-radius:12px;
-      background:linear-gradient(135deg,var(--blue),#0b5bd3);
-      display:grid;place-items:center;color:#fff;font-size:13px;font-weight:700;
-      box-shadow:var(--shadow);
-    }
-    .brand-name{font-size:17px;letter-spacing:-.01em;}
-    .brand-sub{font-size:11px;font-weight:400;color:var(--muted);display:block;line-height:1.2;}
+    .brand{display:flex;align-items:center;}
 
     /* ── HERO BANNER ── */
     .hero-banner{
@@ -79,8 +75,9 @@
       text-transform:uppercase;margin-bottom:16px;
     }
     .hero-banner h1{
-      font-size:clamp(24px,4vw,36px);
-      font-weight:700;margin-bottom:12px;letter-spacing:-.02em;
+      font-family:'Cormorant Garamond', serif;
+      font-size:clamp(26px,4vw,38px);
+      font-weight:400;margin-bottom:12px;letter-spacing:-.01em;
     }
     .hero-banner p{
       font-size:16px;opacity:.88;
@@ -108,7 +105,7 @@
       box-shadow:var(--shadow);
       padding:36px 40px;
     }
-    .card-title{font-size:20px;font-weight:700;color:var(--blue);margin-bottom:6px;}
+    .card-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--blue);margin-bottom:6px;}
     .card-sub{font-size:14px;color:var(--muted);margin-bottom:28px;line-height:1.55;}
 
     /* ── FORM ── */
@@ -122,7 +119,7 @@
     input[type="tel"]{
       width:100%;padding:12px 14px;
       border:1.5px solid #d1d5db;border-radius:10px;
-      font-family:Arial,Helvetica,sans-serif;font-size:14px;
+      font-family:'Raleway', sans-serif;font-size:14px;
       color:var(--text);background:#f9fafb;
       outline:none;transition:border .2s,box-shadow .2s;
     }
@@ -154,7 +151,7 @@
     .btn-submit{
       width:100%;padding:15px;
       background:var(--green);color:#fff;
-      font-family:Arial,Helvetica,sans-serif;
+      font-family:'Raleway', sans-serif;
       font-size:15px;font-weight:700;
       border:none;border-radius:10px;
       cursor:pointer;transition:background .2s,transform .1s;
@@ -179,7 +176,7 @@
     /* ── ÉXITO ── */
     .success-box{display:none;text-align:center;padding:40px 10px;}
     .check-big{
-      width:68px;height:68px;background:var(--green);
+      width:68px;height:68px;background:var(--blue);
       border-radius:50%;display:flex;align-items:center;
       justify-content:center;margin:0 auto 20px;
       font-size:32px;color:#fff;
@@ -194,15 +191,52 @@
     }
 
     /* ── FOOTER ── */
-    footer{
-      text-align:center;padding:20px 16px;
-      font-size:12px;color:var(--muted);
-      border-top:1px solid #e5e7eb;
-    }
+    /* footer handled below */
 
     @media(max-width:500px){
       .card{padding:22px 16px;}
       .hero-banner{padding:32px 16px 28px;}
+    }
+
+    /* ── FOOTER ── */
+    footer{padding:0;color:#6a788a;font-size:14px}
+    .footer-main{background:#fff;border-top:1px solid #e5edf7;padding:48px 0 36px}
+    .footer-inner{
+      display:grid;grid-template-columns:1.8fr 1fr 1fr;
+      gap:40px;align-items:start;
+      max-width:1180px;width:min(calc(100% - 32px),1180px);margin:0 auto;
+    }
+    .footer-brand-name{
+      font-family:'Cormorant Garamond', Georgia, serif;
+      font-size:20px;font-weight:500;color:#1a2535;
+      letter-spacing:.02em;margin-bottom:6px;
+    }
+    .footer-brand-tagline{font-size:13px;color:#7a8da0;margin-bottom:18px;line-height:1.5;font-weight:400}
+    .footer-contact-links{display:flex;flex-direction:column;gap:9px}
+    .footer-contact-links a{font-size:13px;color:#4a5d78;font-weight:500;display:flex;align-items:center;gap:8px;transition:color .2s;}
+    .footer-contact-links a:hover{color:var(--blue)}
+    .footer-col-title{font-size:10px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:#8a9bb0;margin-bottom:16px;}
+    .footer-links{display:flex;flex-direction:column;gap:10px}
+    .footer-links a{font-size:13px;color:#4a5d78;font-weight:500;transition:color .2s;text-decoration:none;}
+    .footer-links a:hover{color:var(--blue)}
+    .btn-arrepentimiento{
+      display:inline-flex;align-items:center;gap:7px;
+      background:transparent;color:#8b2020;
+      border:1px solid #c8a0a0;font-size:11px;font-weight:600;
+      letter-spacing:.05em;text-transform:uppercase;
+      padding:8px 14px;border-radius:4px;text-decoration:none;
+      transition:background .2s,border-color .2s;
+    }
+    .btn-arrepentimiento:hover{background:#fdf0f0;border-color:#8b2020}
+    .btn-arrepentimiento-note{font-size:10px;color:#a0a8b4;margin-top:6px;line-height:1.5}
+    .footer-divider{border:none;border-top:1px solid #e5edf7;margin:0}
+    @media(max-width:768px){
+      .footer-inner{grid-template-columns:1fr 1fr;gap:28px}
+      .footer-brand-col{grid-column:1/-1}
+    }
+    @media(max-width:480px){
+      .footer-inner{grid-template-columns:1fr;gap:22px}
+      .footer-main{padding:32px 0 24px}
     }
   </style>
 </head>
@@ -211,14 +245,10 @@
   <!-- TOPBAR -->
   <div class="topbar">
     <div class="topbar-inner">
-      <a href="https://www.lebenswahl.com" class="brand">
-        <div class="brand-mark">LW</div>
-        <div>
-          <span class="brand-name">lebenswahl</span>
-          <span class="brand-sub">Life planning &amp; Financial consulting.</span>
-        </div>
+      <a href="https://www.lebenswahl.com">
+        <img src="Logo Horizontal.png" alt="Lebenswahl Broker" style="height:76px;width:auto;display:block;" />
       </a>
-      <a href="https://www.lebenswahl.com" style="font-size:13px;color:var(--muted);font-weight:600;">← Volver al sitio</a>
+      <a href="https://www.lebenswahl.com" style="font-size:13px;color:var(--blue);font-weight:600;padding:9px 16px;border:1px solid var(--blue);border-radius:4px;transition:background .2s;">← Volver al sitio</a>
     </div>
   </div>
 
@@ -309,8 +339,47 @@
   </main>
 
   <footer>
-    Lebenswahl Broker · Matrícula SSN 102339 · Life planning &amp; Financial consulting<br>
-    Resolución 424/2020 – Secretaría de Comercio Interior · Ley 24.240 de Defensa del Consumidor
+    <div class="footer-main">
+      <div class="footer-inner">
+        <div class="footer-brand-col">
+          <div class="footer-brand-name">Lebenswahl</div>
+          <div class="footer-brand-tagline">Asesoramiento especializado en seguros de vida<br>Matrícula SSN N° 102339</div>
+          <div class="footer-contact-links">
+            <a href="mailto:contacto@lebenswahl.com">
+              <span style="width:20px;height:20px;border-radius:50%;background:#eef3fb;display:grid;place-items:center;font-size:11px;flex-shrink:0;">✉</span>
+              contacto@lebenswahl.com
+            </a>
+            <a href="https://wa.me/5491127832498" target="_blank" rel="noopener">
+              <span style="width:20px;height:20px;border-radius:50%;background:#e9f7ef;display:grid;place-items:center;flex-shrink:0;">
+                <svg viewBox="0 0 32 32" width="11" height="11" fill="#0e8c43"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.829.742 5.484 2.042 7.789L0 32l8.418-2.01A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.765-1.849l-.484-.287-5.003 1.195 1.235-4.865-.317-.5A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.354-1.162-2.718-1.295-.365-.133-.63-.199-.896.199-.265.398-1.029 1.295-1.261 1.561-.232.265-.465.298-.863.1-.398-.199-1.681-.62-3.203-1.977-1.183-1.056-1.982-2.36-2.214-2.758-.232-.398-.025-.613.175-.811.179-.178.398-.465.597-.697.199-.232.265-.398.398-.664.133-.265.066-.497-.033-.696-.1-.199-.896-2.16-1.228-2.957-.323-.776-.651-.671-.896-.683l-.764-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.853 1.626 4.119c.199.265 2.808 4.287 6.802 6.014.951.41 1.693.655 2.271.839.954.304 1.823.261 2.51.158.765-.114 2.354-.962 2.686-1.891.332-.93.332-1.727.232-1.891-.099-.166-.365-.265-.763-.464z"/></svg>
+              </span>
+              011 2783-2498
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Quiénes somos</div>
+          <div class="footer-links">
+            <a href="quienes-somos.html">Valores y misión</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Legales</div>
+          <div class="footer-links">
+            <a href="terminos-condiciones.html">Términos y condiciones</a>
+            <a href="politica-privacidad.html">Política de privacidad</a>
+            <div style="margin-top:8px">
+              <a href="arrepentimiento.html" class="btn-arrepentimiento" style="background:#fdf0f0;">Botón de arrepentimiento</a>
+              <div class="btn-arrepentimiento-note">Ley 24.240 · Art. 34 · Res. 424/2020</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div style="background:#efefef;padding:12px 16px;text-align:center;font-size:11px;color:#6a788a;">
+      Lebenswahl Broker · Matrícula SSN N° 102339 · Resolución 424/2020 – Secretaría de Comercio Interior · Ley 24.240 de Defensa del Consumidor
+    </div>
   </footer>
 
   <script>
@@ -330,7 +399,10 @@
       errorEl.style.display = 'none';
 
       // Generar código único
-      var codigo = 'LW-' + Date.now().toString(36).toUpperCase().slice(-6);
+      var now = new Date();
+      var hh = String(now.getHours()).padStart(2,'0');
+      var mm = String(now.getMinutes()).padStart(2,'0');
+      var codigo = 'BAJA-' + now.getFullYear() + '-' + hh + mm;
 
       // Setear _replyto ANTES de armar el FormData
       document.getElementById('hidden-mail').value = mail;
