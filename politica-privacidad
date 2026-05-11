@@ -204,7 +204,7 @@
       <div class="brand">
         <img src="Logo Horizontal.png" alt="Lebenswahl Broker" style="height:80px;width:auto;" />
       </div>
-      <button onclick="window.close()" class="back-link">✕ Cerrar</button>
+      <a href="https://www.lebenswahl.com" class="back-link">← Volver al sitio</a>
     </div>
   </header>
 
@@ -278,7 +278,7 @@
         <!-- 4 -->
         <div class="section">
           <h2><span class="section-number">4</span>Consentimiento</h2>
-          <p>El envío voluntario de información personal mediante formularios, correo electrónico, WhatsApp u otros medios de contacto implica el consentimiento del usuario para el tratamiento de sus datos conforme a la presente Política de Privacidad y a la normativa vigente aplicable.</p>
+          <p>El envío voluntario de información personal mediante formularios, correo electrónico, WhatsApp u otros medios de contacto implica el consentimiento libre, expreso e informado del usuario para el tratamiento de sus datos conforme a la presente Política de Privacidad, a lo establecido por el <span class="highlight">artículo 6 de la Ley N° 25.326</span> y a la <span class="highlight">Resolución N° 14/2018 de la Agencia de Acceso a la Información Pública</span>.</p>
           <p>Se recomienda al usuario revisar esta política antes de suministrar información personal a través de cualquier canal de contacto vinculado a Lebenswahl.</p>
         </div>
 
@@ -401,11 +401,11 @@
 
         <!-- Botón cerrar pestaña -->
         <div style="text-align:center">
-          <button onclick="window.close()" class="btn-volver">
-            ✕ Cerrar esta pestaña
-          </button>
+          <a href="https://www.lebenswahl.com" class="btn-volver">
+            ← Volver al sitio
+          </a>
           <p style="margin-top:12px;font-size:12px;color:var(--muted)">
-            Podés cerrar esta pestaña y continuar con tu solicitud.
+            Podés volver al sitio y continuar navegando.
           </p>
         </div>
 
