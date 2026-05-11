@@ -156,28 +156,35 @@
   }
   </script>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --blue:#003781;
-      --blue-dark:#002b66;
-      --blue-soft:#eaf1fb;
-      --text:#1f2a37;
+      --blue:#002d6e;
+      --blue-dark:#001e4d;
+      --blue-soft:#eef3fb;
+      --text:#1a2535;
       --muted:#5a6a7d;
-      --line:#d9e3f2;
+      --line:#dce6f4;
       --white:#ffffff;
-      --green:#11a851;
-      --shadow:0 18px 50px rgba(0,32,84,.10);
-      --radius:24px;
+      --gold:#b8975a;
+      --green:#0e8c43;
+      --green-wa:#25d366;
+      --shadow:0 20px 60px rgba(0,28,80,.09);
+      --shadow-sm:0 4px 20px rgba(0,28,80,.07);
+      --radius:28px;
       --max:1180px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:Arial, Helvetica, sans-serif;
+      font-family:'Raleway', sans-serif;
       color:var(--text);
-      background:#f6f8fc;
-      line-height:1.45;
+      background:#f5f7fc;
+      line-height:1.5;
       padding-bottom:70px;
     }
     a{text-decoration:none;color:inherit}
@@ -212,13 +219,18 @@
       box-shadow:var(--shadow);
     }
     .nav{
-      display:flex;gap:24px;align-items:center;color:#415267;font-size:14px;
+      display:flex;gap:28px;align-items:center;
+      font-size:12px;font-weight:600;
+      letter-spacing:.07em;text-transform:uppercase;color:#4a5d78;
     }
-    .nav a:hover{color:var(--blue)}
+    .nav a{transition:color .2s;padding:4px 0;border-bottom:1px solid transparent}
+    .nav a:hover{color:var(--blue);border-color:var(--gold)}
     .cta-top{
-      background:var(--green);color:#fff;padding:12px 18px;border-radius:999px;font-weight:700;
-      box-shadow:0 10px 24px rgba(17,168,81,.22);
+      color:var(--blue);padding:9px 18px;border-radius:4px;font-weight:600;
+      font-size:12px;letter-spacing:.05em;border:1px solid var(--blue);
+      transition:background .2s,color .2s;
     }
+    .cta-top:hover{background:var(--blue);color:#fff}
 
     .hero{
       padding:24px 0 0;
@@ -240,17 +252,21 @@
       box-shadow:var(--shadow);
     }
     .hero-copy h1{
-      margin:0 0 10px;
-      font-size:clamp(36px,4.8vw,58px);
+      margin:0 0 12px;
+      font-family:'Cormorant Garamond', serif;
+      font-size:clamp(38px,5vw,60px);
       line-height:1.02;
       color:var(--blue);
-      letter-spacing:-.03em;
+      letter-spacing:-.02em;
+      font-weight:500;
     }
     .hero-copy p{
       margin:0 0 22px;
-      font-size:21px;
-      color:#334155;
+      font-size:18px;
+      color:#344560;
       max-width:560px;
+      line-height:1.65;
+      font-weight:400;
     }
     .hero-actions{
       display:flex;
@@ -259,13 +275,16 @@
       margin-bottom:18px;
     }
     .btn-primary,.btn-secondary{
-      padding:15px 22px;
-      border-radius:999px;
-      font-weight:700;
-      font-size:15px;
+      padding:13px 24px;
+      border-radius:4px;
+      font-weight:600;
+      font-size:14px;
+      letter-spacing:.04em;
     }
-    .btn-primary{background:var(--green);color:#fff}
-    .btn-secondary{background:var(--blue-soft);color:var(--blue)}
+    .btn-primary{background:var(--blue);color:#fff;transition:background .2s}
+    .btn-primary:hover{background:var(--blue-dark)}
+    .btn-secondary{background:transparent;color:var(--blue);border:1px solid var(--blue);transition:background .2s}
+    .btn-secondary:hover{background:var(--blue-soft)}
     .mini-nav{
       display:flex;gap:14px;flex-wrap:wrap;font-size:14px;color:#5c6d82;font-weight:700;
     }
@@ -312,11 +331,13 @@
     .section-head h2{
       margin:0 0 8px;
       color:var(--blue);
+      font-family:'Cormorant Garamond', serif;
       font-size:clamp(28px,3.6vw,42px);
-      line-height:1.08;
-      letter-spacing:-.03em;
+      line-height:1.06;
+      letter-spacing:-.01em;
+      font-weight:500;
     }
-    .section-head p{margin:0;color:var(--muted);font-size:18px}
+    .section-head p{margin:0;color:var(--muted);font-size:17px;font-weight:400;line-height:1.6}
 
     .cover-grid{
       display:grid;
@@ -363,13 +384,15 @@
     }
     .adv-item h3{
       margin:0 0 8px;
+      font-family:'Cormorant Garamond', serif;
       font-size:24px;
+      font-weight:500;
       color:var(--blue);
       min-height:58px;
       display:flex;
       align-items:flex-start;
     }
-    .adv-item p{margin:0;color:var(--muted);font-size:16px}
+    .adv-item p{margin:0;color:var(--muted);font-size:15px;line-height:1.6;font-weight:400}
 
     .plans-wrap{
       background:#fff;border:1px solid #e5edf7;border-radius:30px;padding:24px;box-shadow:var(--shadow);overflow:auto;-webkit-overflow-scrolling:touch
@@ -406,7 +429,7 @@
     .final-cta-grid{
       display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center
     }
-    .final-cta h2{margin:0 0 10px;font-size:clamp(28px,4vw,44px);line-height:1.06}
+    .final-cta h2{margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);line-height:1.06;font-weight:400}
     .final-cta p{margin:0 0 20px;font-size:18px;color:rgba(255,255,255,.88);max-width:620px}
     .final-cta .btn-primary{display:inline-block}
     .cta-ph{
@@ -418,36 +441,103 @@
     }
 
     footer{
-      padding:34px 0 50px;
+      padding:0;
       color:#6a788a;
       font-size:14px;
     }
-    .footer-box{
-      background:#fff;border:1px solid #e5edf7;border-radius:26px;padding:20px;box-shadow:var(--shadow)
-    }
-    .footer-grid{
-      display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px
-    }
-    .footer-title{font-weight:700;color:#203450;margin-bottom:10px}
-    .legal{margin-top:16px;padding-top:16px;border-top:1px solid #e7eef7;font-size:12px;line-height:1.5}
 
-    /* ── Tagline del footer: perfectamente centrada ── */
-    .brand-footer{
-      width:100%;
-      text-align:center;
-      font-size:15px;
-      font-weight:700;
-      color:#203450;
-      padding:18px 16px 14px;
-      letter-spacing:.01em;
+    /* ── Footer principal ── */
+    .footer-main{
+      background:#fff;
+      border-top:1px solid #e5edf7;
+      padding:48px 0 36px;
     }
+    .footer-inner{
+      display:grid;
+      grid-template-columns:1.8fr 1fr 1fr;
+      gap:40px;
+      align-items:start;
+    }
+    .footer-brand-name{
+      font-family:'Cormorant Garamond', Georgia, serif;
+      font-size:20px;
+      font-weight:500;
+      color:#1a2535;
+      letter-spacing:.02em;
+      margin-bottom:6px;
+    }
+    .footer-brand-tagline{
+      font-size:13px;
+      color:#7a8da0;
+      font-weight:400;
+      margin-bottom:18px;
+      line-height:1.5;
+    }
+    .footer-contact-links{
+      display:flex;
+      flex-direction:column;
+      gap:9px;
+    }
+    .footer-contact-links a{
+      font-size:13px;
+      color:#4a5d78;
+      font-weight:500;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      transition:color .2s;
+    }
+    .footer-contact-links a:hover{color:var(--blue)}
+    .footer-col-title{
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color:#8a9bb0;
+      margin-bottom:16px;
+    }
+    .footer-links{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .footer-links a{
+      font-size:13px;
+      color:#4a5d78;
+      font-weight:500;
+      transition:color .2s;
+      line-height:1.4;
+    }
+    .footer-links a:hover{color:var(--blue)}
+    .btn-arrepentimiento{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      background:transparent;
+      color:#8b2020;
+      border:1px solid #c8a0a0;
+      font-size:11px;
+      font-weight:600;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+      padding:8px 14px;
+      border-radius:4px;
+      text-decoration:none;
+      transition:background .2s,border-color .2s;
+    }
+    .btn-arrepentimiento:hover{background:#fdf0f0;border-color:#8b2020}
+    .btn-arrepentimiento-note{
+      font-size:10px;
+      color:#a0a8b4;
+      margin-top:6px;
+      line-height:1.5;
+    }
+    .footer-divider{border:none;border-top:1px solid #e5edf7;margin:0}
 
     .footer-ssn{
       width:100%;
-      margin-top:0;
       background:#efefef;
       padding:0;
-      border-top:none;
     }
     .footer-ssn-inner{
       max-width:1142px;
@@ -460,13 +550,13 @@
       height:auto;
     }
 
-    /* ── Footer SSN responsive: alinea tagline y franja SSN en mobile ── */
-    @media (max-width: 640px){
-      .brand-footer{
-        font-size:13px;
-        padding:14px 12px 10px;
-      }
-      /* La imagen SSN ya se adapta sola con width:100% */
+    @media(max-width:768px){
+      .footer-inner{grid-template-columns:1fr 1fr;gap:28px}
+      .footer-brand-col{grid-column:1/-1}
+    }
+    @media(max-width:480px){
+      .footer-inner{grid-template-columns:1fr;gap:22px}
+      .footer-main{padding:32px 0 24px}
     }
 
     @media (max-width: 980px){
@@ -542,17 +632,18 @@
     .btn-submit{
       margin-top:6px;
       padding:14px 20px;
-      border-radius:999px;
-      border:none;
-      background:var(--green);
+      border-radius:4px;
+      border:1px solid rgba(255,255,255,.35);
+      background:rgba(255,255,255,.15);
       color:#fff;
-      font-weight:700;
-      font-size:15px;
+      font-family:'Raleway',sans-serif;
+      font-weight:600;
+      font-size:14px;
+      letter-spacing:.04em;
       cursor:pointer;
-      box-shadow:0 8px 22px rgba(17,168,81,.35);
-      transition:opacity .2s;
+      transition:background .2s;
     }
-    .btn-submit:hover{opacity:.88}
+    .btn-submit:hover{background:rgba(255,255,255,.28)}
     .form-note{
       margin:10px 0 0;
       font-size:12px;
@@ -564,35 +655,59 @@
     .btn-contratar{
       display:block;
       width:100%;
-      padding:13px 10px;
-      border-radius:999px;
-      border:none;
-      background:var(--green);
+      padding:11px 10px;
+      border-radius:4px;
+      border:1px solid var(--blue);
+      background:var(--blue);
       color:#fff;
-      font-weight:700;
-      font-size:13px;
+      font-family:'Raleway',sans-serif;
+      font-weight:600;
+      font-size:12px;
+      letter-spacing:.04em;
       text-align:center;
       cursor:pointer;
       text-decoration:none;
-      box-shadow:0 6px 18px rgba(17,168,81,.28);
-      transition:opacity .2s;
+      transition:background .2s;
       white-space:nowrap;
     }
-    .btn-contratar:hover{opacity:.88}
+    .btn-contratar:hover{background:var(--blue-dark)}
 
-    /* Fila de botones desktop — debajo de la tabla */
+    /* ── Botón WA ── */
+    .btn-wa-plan{
+      display:block;
+      width:100%;
+      padding:11px 10px;
+      border-radius:4px;
+      border:1px solid #c8d8ee;
+      background:#fff;
+      color:var(--blue);
+      font-family:'Raleway',sans-serif;
+      font-weight:600;
+      font-size:12px;
+      letter-spacing:.04em;
+      text-align:center;
+      cursor:pointer;
+      text-decoration:none;
+      transition:background .2s,border-color .2s;
+      white-space:nowrap;
+    }
+    .btn-wa-plan:hover{background:var(--blue-soft);border-color:var(--blue)}
+
+    /* Fila de botones desktop — 2 CTAs por plan */
     .rc-btns-row{
       display:grid;
       grid-template-columns: 200px repeat(4,1fr);
-      background:#f0f7ff;
+      background:#f4f7fd;
       border-top:1px solid var(--line);
     }
     .rc-btns-row .rc-btn-empty{
       padding:14px 16px;
     }
     .rc-btns-row .rc-btn-cell{
-      padding:14px 12px;
+      padding:12px 10px;
       display:flex;
+      flex-direction:column;
+      gap:8px;
       align-items:center;
       justify-content:center;
       border-left:1px solid var(--line);
@@ -600,8 +715,11 @@
 
     /* Mobile: botón al pie de cada tarjeta */
     .mc-footer{
-      padding:12px 14px 14px;
+      padding:12px 14px 16px;
       border-top:1px solid #edf2fb;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
     }
 
     .form-success{
@@ -625,22 +743,83 @@
       line-height:1.5;
     }
 
+    /* ── Modal WA ── */
+    .modal-overlay{
+      display:none;position:fixed;inset:0;z-index:200;
+      background:rgba(0,20,60,.45);backdrop-filter:blur(3px);
+      align-items:center;justify-content:center;padding:20px;
+    }
+    .modal-overlay.open{display:flex}
+    .modal-box{
+      background:#fff;border-radius:20px;padding:30px;
+      max-width:420px;width:100%;box-shadow:0 30px 80px rgba(0,20,60,.18);
+      position:relative;
+    }
+    .modal-box h4{
+      font-family:'Cormorant Garamond',serif;
+      font-size:22px;font-weight:500;color:var(--blue);margin-bottom:8px;
+    }
+    .modal-box p{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:16px;font-weight:400}
+    .modal-box label{
+      font-size:11px;font-weight:700;letter-spacing:.07em;
+      text-transform:uppercase;color:#4a5d78;display:block;margin-bottom:6px;
+    }
+    .modal-box input{
+      width:100%;padding:11px 14px;border-radius:6px;
+      border:1px solid #ccd8ee;background:#f7faff;
+      font-family:'Raleway',sans-serif;font-size:15px;
+      outline:none;transition:border-color .2s;margin-bottom:14px;
+    }
+    .modal-box input:focus{border-color:var(--blue);background:#fff}
+    .modal-close{
+      position:absolute;top:14px;right:16px;
+      background:none;border:none;cursor:pointer;
+      font-size:20px;color:#8a9bb0;line-height:1;
+    }
+    .modal-close:hover{color:var(--blue)}
+    .btn-wa-send{
+      width:100%;padding:13px;border-radius:4px;border:none;
+      background:var(--green-wa);color:#fff;
+      font-family:'Raleway',sans-serif;
+      font-weight:700;font-size:14px;letter-spacing:.04em;
+      cursor:pointer;transition:opacity .2s;
+      display:flex;align-items:center;justify-content:center;gap:8px;
+    }
+    .btn-wa-send:hover{opacity:.88}
+
+    /* contratar panel */
+    .contratar-texto{
+      font-size:15px;color:#3a4f68;line-height:1.8;
+      margin-bottom:20px;font-weight:400;
+    }
+    .contratar-divider{border:none;border-top:1px solid var(--line);margin:18px 0}
+    .contratar-sub{font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.6;font-style:italic}
+    .btn-ir-solicitud{
+      display:inline-block;padding:12px 22px;border-radius:4px;
+      background:var(--blue);color:#fff;
+      font-family:'Raleway',sans-serif;
+      font-weight:600;font-size:13px;letter-spacing:.04em;
+      cursor:pointer;transition:background .2s;
+    }
+    .btn-ir-solicitud:hover{background:var(--blue-dark)}
+
     /* ── Cotizador ── */
     .btn-cotizador{
       display:inline-block;
-      padding:15px 22px;
-      border-radius:999px;
-      font-weight:700;
-      font-size:15px;
+      padding:13px 22px;
+      border-radius:4px;
+      font-family:'Raleway',sans-serif;
+      font-weight:600;
+      font-size:14px;
+      letter-spacing:.05em;
       background:var(--blue);
       color:#fff;
       border:none;
       cursor:pointer;
-      box-shadow:0 10px 24px rgba(0,55,129,.28);
-      transition:opacity .2s;
+      transition:background .2s;
       margin-bottom:10px;
     }
-    .btn-cotizador:hover{opacity:.88}
+    .btn-cotizador:hover{background:var(--blue-dark)}
 
     .cotizador-panel{
       display:none;
@@ -655,8 +834,9 @@
     .cotizador-panel.open{display:block}
     .cotizador-panel h3{
       margin:0 0 14px;
-      font-size:16px;
-      font-weight:700;
+      font-family:'Cormorant Garamond',serif;
+      font-size:20px;
+      font-weight:500;
       color:var(--blue);
     }
     .cotizador-row{
@@ -691,23 +871,23 @@
     .btn-cotizar{
       width:100%;
       padding:13px 20px;
-      border-radius:999px;
+      border-radius:4px;
       border:none;
       background:var(--blue);
       color:#fff;
-      font-weight:700;
-      font-size:15px;
+      font-family:'Raleway',sans-serif;
+      font-weight:600;
+      font-size:14px;
+      letter-spacing:.04em;
       cursor:pointer;
-      box-shadow:0 8px 22px rgba(0,55,129,.25);
-      transition:opacity .2s;
+      transition:background .2s;
       margin-top:4px;
     }
     .btn-cotizar:disabled{
-      background:#9db2cc;
+      background:#b0c0d8;
       cursor:not-allowed;
-      box-shadow:none;
     }
-    .btn-cotizar:not(:disabled):hover{opacity:.88}
+    .btn-cotizar:not(:disabled):hover{background:var(--blue-dark)}
 
     /* ── Cotizador resultado ── */
     #cotizador-resultado{
@@ -716,10 +896,11 @@
     }
     .resultado-intro{
       margin:0 0 16px;
-      font-size:16px;
+      font-family:'Cormorant Garamond',serif;
+      font-size:20px;
       color:var(--blue);
-      font-weight:700;
-      letter-spacing:-.01em;
+      font-weight:400;
+      letter-spacing:.02em;
     }
 
     /* GRID: usa tabla para filas alineadas en todas las tarjetas */
@@ -760,18 +941,18 @@
       position:relative;
     }
     .rc-plan-col.destacado::after{
-      content:"Más elegido";
+      content:"Más consultado";
       position:absolute;
       top:-1px;
       left:50%;
       transform:translateX(-50%);
-      background:#11a851;
+      background:var(--gold);
       color:#fff;
-      font-size:10px;
+      font-size:9px;
       font-weight:700;
       padding:3px 10px;
       border-radius:0 0 8px 8px;
-      letter-spacing:.04em;
+      letter-spacing:.05em;
       text-transform:uppercase;
       white-space:nowrap;
     }
@@ -891,7 +1072,7 @@
       background:linear-gradient(135deg,var(--blue),#1560d4);
     }
     .mc-badge{
-      background:#11a851;
+      background:var(--gold);
       color:#fff;
       font-size:9px;
       font-weight:700;
@@ -1017,12 +1198,43 @@
 
   <!-- ── Banner de cookies ── -->
   <div id="cookie-banner">
-    <p>🍪 <strong>Valoramos tu privacidad.</strong> Utilizamos cookies para la recolección de información y la mejora del servicio.</p>
+    <p><strong>Privacidad.</strong> Utilizamos cookies para la recolección de información y la mejora del servicio.</p>
     <div class="cookie-btns">
       <button class="btn-cookie-accept" onclick="cookieAccept()">Aceptar</button>
       <button class="btn-cookie-cancel" onclick="cookieCancel()">Rechazar</button>
     </div>
   </div>
+  <!-- ── Modal WA ── -->
+  <div class="modal-overlay" id="wa-modal" onclick="if(event.target===this)cerrarModal('wa-modal')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="cerrarModal('wa-modal')">✕</button>
+      <h4>Recibir cotización por WhatsApp</h4>
+      <p>Ingresá tu número y te enviamos la cotización del <strong id="wa-plan-nombre"></strong> directamente a tu celular.</p>
+      <label for="wa-tel-input">Tu número de WhatsApp</label>
+      <input type="tel" id="wa-tel-input" placeholder="Ej: +54 9 11 1234-5678" />
+      <button class="btn-wa-send" onclick="enviarWA()">
+        <svg viewBox="0 0 32 32" width="16" height="16" fill="#fff"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.829.742 5.484 2.042 7.789L0 32l8.418-2.01A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.765-1.849l-.484-.287-5.003 1.195 1.235-4.865-.317-.5A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.354-1.162-2.718-1.295-.365-.133-.63-.199-.896.199-.265.398-1.029 1.295-1.261 1.561-.232.265-.465.298-.863.1-.398-.199-1.681-.62-3.203-1.977-1.183-1.056-1.982-2.36-2.214-2.758-.232-.398-.025-.613.175-.811.179-.178.398-.465.597-.697.199-.232.265-.398.398-.664.133-.265.066-.497-.033-.696-.1-.199-.896-2.16-1.228-2.957-.323-.776-.651-.671-.896-.683l-.764-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.853 1.626 4.119c.199.265 2.808 4.287 6.802 6.014.951.41 1.693.655 2.271.839.954.304 1.823.261 2.51.158.765-.114 2.354-.962 2.686-1.891.332-.93.332-1.727.232-1.891-.099-.166-.365-.265-.763-.464z"/></svg>
+        Enviar por WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Modal Cómo contratar ── -->
+  <div class="modal-overlay" id="contratar-modal" onclick="if(event.target===this)cerrarModal('contratar-modal')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="cerrarModal('contratar-modal')">✕</button>
+      <h4>Cómo contratar este plan</h4>
+      <p class="contratar-texto">
+        En Lebenswahl creemos que la protección de una familia merece un análisis previo, profesional y personalizado.<br><br>
+        Te invitamos a agendar una entrevista con nosotros. Es el primer paso para encontrar la cobertura adecuada para tu situación, sin apuro y sin compromiso.
+      </p>
+      <a href="#contacto" class="btn-primary" style="display:inline-block;margin-bottom:4px" onclick="cerrarModal('contratar-modal')">Agendar entrevista</a>
+      <hr class="contratar-divider">
+      <p class="contratar-sub">Si ya tuviste una entrevista con nuestro equipo y estás listo para avanzar, podés iniciar la solicitud:</p>
+      <a href="https://www.lebenswahl.com/Solicitud" class="btn-ir-solicitud" target="_blank" rel="noopener">Iniciar solicitud de contratación</a>
+    </div>
+  </div>
+
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="brand">
@@ -1032,8 +1244,9 @@
         <a href="#cobertura">Cobertura</a>
         <a href="#ventajas">Ventajas</a>
         <a href="#planes">Planes</a>
-        <a href="#faq">Preguntas frecuentes</a>
+        <a href="#faq">Consultas frecuentes</a>
       </nav>
+      <a href="#contacto" class="cta-top">Agendar entrevista</a>
     </div>
   </header>
 
@@ -1046,7 +1259,7 @@
             <p>Te presentamos <strong>Vida Protección de Allianz Argentina</strong>, una cobertura integral pensada para vos y tu familia. Seguridad. Tranquilidad. Futuro.</p>
             <div class="hero-actions" style="flex-direction:column;align-items:flex-start;gap:10px;">
               <!-- COTIZADOR -->
-              <button class="btn-cotizador" id="btn-abrir-cotizador" onclick="toggleCotizador()">🔍 Cotizá tu seguro ahora</button>
+              <button class="btn-cotizador" id="btn-abrir-cotizador" onclick="toggleCotizador()">Conocer valores de cobertura</button>
               <div class="cotizador-panel" id="cotizador-panel">
                 <h3>Ingresá tus datos para cotizar</h3>
                 <div class="cotizador-row">
@@ -1059,19 +1272,13 @@
                     <input type="number" id="cot-edad" placeholder="18 – 64" min="18" max="64" oninput="checkCotizadorFields()">
                   </div>
                 </div>
-                <div class="cotizador-row">
-                  <div class="cotizador-field" style="flex:1;min-width:100%">
-                    <label for="cot-tel">Teléfono <span style="color:#e05050;font-size:12px" id="cot-tel-error"></span></label>
-                    <input type="tel" id="cot-tel" placeholder="Ej: +54 9 11 1234-5678" oninput="checkCotizadorFields()">
-                  </div>
-                </div>
-                <button class="btn-cotizar" id="btn-cotizar" disabled onclick="mostrarCotizacion()">Cotizar</button>
+                <button class="btn-cotizar" id="btn-cotizar" disabled onclick="mostrarCotizacion()">Ver cotización</button>
               </div>
               <!-- Resultado -->
               <div id="cotizador-resultado"></div>
-              <!-- Botones originales -->
+              <!-- Botones -->
               <div style="display:flex;gap:12px;flex-wrap:wrap;">
-                <a class="btn-primary" href="#contacto">Agenda una entrevista</a>
+                <a class="btn-primary" href="#contacto">Agendar una entrevista</a>
                 <a class="btn-secondary" href="#cobertura">Ver cobertura</a>
               </div>
             </div>
@@ -1337,23 +1544,55 @@
   </main>
 
   <footer>
-    <!-- Tagline perfectamente centrada -->
-    <div class="brand-footer">
-      Lebenswahl Broker &middot; Asesoramiento especializado en seguros de vida
-      <div style="margin-top:6px;font-size:13px;font-weight:400;color:#5a6a7d;">
-        <a href="mailto:contacto@lebenswahl.com" style="color:var(--blue);font-weight:600;text-decoration:none;">contacto@lebenswahl.com</a>
-        &nbsp;·&nbsp;
-        <a href="https://wa.me/5491127832498?text=Hola%2C%20estoy%20interesado%20en%20un%20seguro%20Vida%20Protecci%C3%B3n." style="color:var(--blue);font-weight:600;text-decoration:none;">011 2783-2498</a>
-      </div>
-      <!-- BOTÓN DE ARREPENTIMIENTO – Ley 24.240 -->
-      <div style="margin-top:14px;">
-        <a href="arrepentimiento.html"
-           style="display:inline-block;background:#c0392b;color:#fff;font-size:13px;font-weight:700;padding:10px 22px;border-radius:999px;text-decoration:none;letter-spacing:.3px;">
-          🔄 BOTÓN DE ARREPENTIMIENTO
-        </a>
-        <div style="margin-top:5px;font-size:11px;color:#8a9ab0;">Ley 24.240 – Defensa del Consumidor · Art. 34 · Resolución 424/2020</div>
+    <!-- ── Footer principal ── -->
+    <div class="footer-main">
+      <div class="container footer-inner">
+
+        <!-- Columna marca -->
+        <div class="footer-brand-col">
+          <div class="footer-brand-name">Lebenswahl</div>
+          <div class="footer-brand-tagline">Asesoramiento especializado en seguros de vida<br>Matrícula SSN N° 102339</div>
+          <div class="footer-contact-links">
+            <a href="mailto:contacto@lebenswahl.com">
+              <span style="width:20px;height:20px;border-radius:50%;background:#eef3fb;display:grid;place-items:center;font-size:11px;flex-shrink:0;">✉</span>
+              contacto@lebenswahl.com
+            </a>
+            <a href="https://wa.me/5491127832498?text=Hola%2C%20estoy%20interesado%20en%20un%20seguro%20Vida%20Protecci%C3%B3n." target="_blank" rel="noopener">
+              <span style="width:20px;height:20px;border-radius:50%;background:#e9f7ef;display:grid;place-items:center;flex-shrink:0;">
+                <svg viewBox="0 0 32 32" width="11" height="11" fill="#0e8c43"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.829.742 5.484 2.042 7.789L0 32l8.418-2.01A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.765-1.849l-.484-.287-5.003 1.195 1.235-4.865-.317-.5A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.354-1.162-2.718-1.295-.365-.133-.63-.199-.896.199-.265.398-1.029 1.295-1.261 1.561-.232.265-.465.298-.863.1-.398-.199-1.681-.62-3.203-1.977-1.183-1.056-1.982-2.36-2.214-2.758-.232-.398-.025-.613.175-.811.179-.178.398-.465.597-.697.199-.232.265-.398.398-.664.133-.265.066-.497-.033-.696-.1-.199-.896-2.16-1.228-2.957-.323-.776-.651-.671-.896-.683l-.764-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.853 1.626 4.119c.199.265 2.808 4.287 6.802 6.014.951.41 1.693.655 2.271.839.954.304 1.823.261 2.51.158.765-.114 2.354-.962 2.686-1.891.332-.93.332-1.727.232-1.891-.099-.166-.365-.265-.763-.464z"/></svg>
+              </span>
+              011 2783-2498
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna quiénes somos -->
+        <div>
+          <div class="footer-col-title">Quiénes somos</div>
+          <div class="footer-links">
+            <a href="quienes-somos.html">Valores y misión</a>
+          </div>
+        </div>
+
+        <!-- Columna legales -->
+        <div>
+          <div class="footer-col-title">Legales</div>
+          <div class="footer-links">
+            <a href="terminos-condiciones.html">Términos y condiciones</a>
+            <a href="politica-privacidad.html">Política de privacidad</a>
+            <div style="margin-top:8px">
+              <a href="arrepentimiento.html" class="btn-arrepentimiento">
+                Botón de arrepentimiento
+              </a>
+              <div class="btn-arrepentimiento-note">Ley 24.240 · Art. 34 · Res. 424/2020</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
+
+    <hr class="footer-divider">
 
     <div class="footer-ssn">
       <div class="footer-ssn-inner">
@@ -1596,16 +1835,8 @@
   function checkCotizadorFields(){
     var dni = document.getElementById('cot-dni').value.trim();
     var edad = parseInt(document.getElementById('cot-edad').value);
-    var tel  = document.getElementById('cot-tel').value.trim();
-    var telOk = /^[\d\s\+\-\(\)]{7,20}$/.test(tel);
-    var errEl = document.getElementById('cot-tel-error');
-    if(tel && !telOk){
-      errEl.textContent = '— formato inválido';
-    } else {
-      errEl.textContent = '';
-    }
     var btn = document.getElementById('btn-cotizar');
-    btn.disabled = !(dni.length >= 7 && edad >= 18 && edad <= 64 && telOk);
+    btn.disabled = !(dni.length >= 7 && edad >= 18 && edad <= 64);
   }
 
   function fmt(n){
@@ -1618,12 +1849,11 @@
     var precios = PRECIOS[edad];
     if(!precios) return;
 
-    // ── Envío silencioso a Formspree para registrar cada cotización ──
+    // ── Envío silencioso a Formspree ──
     var formData = new FormData();
     formData.append('_subject', 'Nueva cotización web');
     formData.append('DNI', dni);
     formData.append('Edad', edad);
-    formData.append('Teléfono', document.getElementById('cot-tel').value.trim());
     formData.append('Fecha', new Date().toLocaleString('es-AR'));
     fetch('https://formspree.io/f/xlgzbnpd', {
       method: 'POST',
@@ -1657,12 +1887,15 @@
       '</div>';
     }).join('');
 
-    // Fila de botones desktop — alineada perfectamente bajo cada columna
+    // Fila de botones desktop — 2 CTAs por plan
     var btnsRow = '<div class="rc-btns-row">'+
       '<div class="rc-btn-empty"></div>'+
-      PLANES.map(function(){
+      PLANES.map(function(p){
+        var planNombre = encodeURIComponent(p.nombre);
+        var dniEnc = encodeURIComponent(dni);
         return '<div class="rc-btn-cell">'+
-          '<a href="https://www.lebenswahl.com/Solicitud" class="btn-contratar">Contratar plan</a>'+
+          '<button class="btn-wa-plan" onclick="abrirWA(\''+p.nombre+'\',\''+dni+'\')">Recibir cotización por WA</button>'+
+          '<button class="btn-contratar" onclick="abrirContratar()">Cómo contratar este plan</button>'+
         '</div>';
       }).join('')+
     '</div>';
@@ -1676,7 +1909,7 @@
           '<span class="mc-val">'+c.val+'</span>'+
         '</div>';
       }).join('');
-      var badge = p.destacado ? '<span class="mc-badge">Más elegido</span>' : '';
+      var badge = p.destacado ? '<span class="mc-badge">Más consultado</span>' : '';
       return '<div class="mc-card'+(p.destacado?' mc-destacado':'')+'">'+
         '<div class="mc-head">'+
           '<div class="mc-nombre">'+p.nombre+'</div>'+
@@ -1685,7 +1918,8 @@
         '</div>'+
         '<div class="mc-body">'+rows+'</div>'+
         '<div class="mc-footer">'+
-          '<a href="https://www.lebenswahl.com/Solicitud" class="btn-contratar">Contratar plan</a>'+
+          '<button class="btn-wa-plan" onclick="abrirWA(\''+p.nombre+'\',\''+dni+'\')">Recibir cotización por WA</button>'+
+          '<button class="btn-contratar" onclick="abrirContratar()">Cómo contratar este plan</button>'+
         '</div>'+
       '</div>';
     }).join('');
@@ -1694,7 +1928,7 @@
 
     var res = document.getElementById('cotizador-resultado');
     res.innerHTML =
-      '<p class="resultado-intro">Tu cotización · '+edad+' años</p>'+
+      '<p class="resultado-intro">Cotización · '+edad+' años</p>'+
       '<div class="resultado-scroll">'+
         '<div class="resultado-wrap">'+headRow+dataRows+btnsRow+'</div>'+
       '</div>'+
@@ -1702,8 +1936,30 @@
       leyenda;
     res.style.display='block';
 
-    // scroll suave al resultado
     setTimeout(function(){ res.scrollIntoView({behavior:'smooth', block:'start'}); }, 80);
+  }
+
+  // ── Modales ──
+  function abrirWA(planNombre, dni){
+    document.getElementById('wa-plan-nombre').textContent = planNombre;
+    document.getElementById('wa-tel-input').value = '';
+    window._waData = {plan: planNombre, dni: dni};
+    document.getElementById('wa-modal').classList.add('open');
+  }
+  function abrirContratar(){
+    document.getElementById('contratar-modal').classList.add('open');
+  }
+  function cerrarModal(id){
+    document.getElementById(id).classList.remove('open');
+  }
+  function enviarWA(){
+    var tel = document.getElementById('wa-tel-input').value.trim();
+    if(!tel){ document.getElementById('wa-tel-input').focus(); return; }
+    var d = window._waData || {};
+    var texto = 'Hola, quiero una cotización de Vida Protección ' + (d.plan||'') + '. Mi DNI es ' + (d.dni||'');
+    var url = 'https://wa.me/5491127832498?text=' + encodeURIComponent(texto);
+    window.open(url, '_blank');
+    cerrarModal('wa-modal');
   }
   </script>
 </body>
