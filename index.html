@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- ───── SEO BÁSICO ───── -->
-  <title>Seguro de Vida en Argentina | Cotizá Online | Lebenswahl Broker</title>
+  <title>Seguro de Vida Protección Allianz | Cotizá Online | Lebenswahl Broker</title>
   <meta name="description" content="Contratá tu seguro de vida en Argentina con asesoramiento experto. Coberturas por muerte, invalidez, enfermedades graves y más. Póliza en dólares, cotización online sin cargo. Lebenswahl Broker · Matrícula SSN 102339." />
   <meta name="keywords" content="seguro de vida argentina, contratar seguro de vida, cotizar seguro de vida, broker seguros de vida, seguro de vida en dolares, seguro de vida familiar, cobertura por muerte, invalidez por accidente, enfermedades graves seguro, seguro de vida buenos aires, seguro de vida online, asesor seguros de vida, seguro de vida allianz argentina" />
   <meta name="robots" content="index, follow" />
@@ -34,7 +34,7 @@
   <!-- ───── OPEN GRAPH ───── -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_AR" />
-  <meta property="og:title" content="Seguro de Vida en Argentina | Cotizá Online | Lebenswahl Broker" />
+  <meta property="og:title" content="Seguro de Vida Protección Allianz | Cotizá Online | Lebenswahl Broker" />
   <meta property="og:description" content="Cobertura integral para vos y tu familia: muerte, invalidez, enfermedades graves y más. Cotizá online sin cargo con asesoramiento especializado." />
   <meta property="og:url" content="https://www.lebenswahl.com" />
   <meta property="og:site_name" content="Lebenswahl Broker" />
@@ -42,7 +42,7 @@
 
   <!-- ───── TWITTER CARD ───── -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Seguro de Vida en Argentina | Cotizá Online | Lebenswahl Broker" />
+  <meta name="twitter:title" content="Seguro de Vida Protección Allianz | Cotizá Online | Lebenswahl Broker" />
   <meta name="twitter:description" content="Cobertura integral para vos y tu familia: muerte, invalidez, enfermedades graves y más. Cotizá online sin cargo." />
   <meta name="twitter:image" content="https://www.lebenswahl.com/hero.png" />
 
@@ -62,7 +62,7 @@
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Seguros de Vida",
+      "name": "Seguro de Vida Protección",
       "itemListElement": [
         {
           "@type": "Offer",
@@ -156,7 +156,7 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" type="image/png" href="Logo Horizontal.png" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -274,12 +274,19 @@
       flex-wrap:wrap;
       margin-bottom:18px;
     }
+    .hero-actions .btn-primary,
+    .hero-actions .btn-cotizador{
+      display:block;
+      text-align:center;
+    }
     .btn-primary,.btn-secondary{
       padding:13px 24px;
       border-radius:4px;
       font-weight:600;
       font-size:14px;
       letter-spacing:.04em;
+      min-width:220px;
+      text-align:center;
     }
     .btn-primary{background:var(--blue);color:#fff;transition:background .2s}
     .btn-primary:hover{background:var(--blue-dark)}
@@ -572,8 +579,10 @@
       .hero{padding-top:14px}
       .hero-grid{padding:16px;border-radius:20px;gap:14px}
       .hero-copy h1{font-size:clamp(28px,8vw,48px)}
+      .hero-copy h1 > div{width:100%;padding:12px 16px;gap:12px;}
+      .hero-copy h1 > div img{height:22px;}
       .hero-copy p{font-size:17px}
-      .btn-primary,.btn-secondary{width:100%;text-align:center}
+      .btn-primary,.btn-secondary,.btn-cotizador{width:100%;text-align:center;min-width:unset;}
       .section-head p{font-size:17px}
       .card,.plans-wrap,.adv-item,.footer-box,details{padding:12px}
       th,td{padding:10px 8px;font-size:12px}
@@ -806,18 +815,20 @@
     /* ── Cotizador ── */
     .btn-cotizador{
       display:inline-block;
-      padding:13px 22px;
+      padding:13px 24px;
       border-radius:4px;
       font-family:'Raleway',sans-serif;
       font-weight:600;
       font-size:14px;
-      letter-spacing:.05em;
+      letter-spacing:.04em;
       background:var(--blue);
       color:#fff;
       border:none;
       cursor:pointer;
       transition:background .2s;
       margin-bottom:10px;
+      min-width:220px;
+      text-align:center;
     }
     .btn-cotizador:hover{background:var(--blue-dark)}
 
@@ -1255,11 +1266,18 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-copy">
-            <h1>Seguros de Vida</h1>
-            <p>Te presentamos <strong>Vida Protección de Allianz Argentina</strong>, una cobertura integral pensada para vos y tu familia. Seguridad. Tranquilidad. Futuro.</p>
-            <div class="hero-actions" style="flex-direction:column;align-items:flex-start;gap:10px;">
+            <!-- Header principal: Vida Protección + logo Allianz -->
+            <h1 style="margin:0 0 20px;">
+            <div style="display:inline-flex;align-items:center;gap:16px;background:#fff;border:1.5px solid #d4e0f5;border-radius:12px;padding:14px 24px;box-shadow:0 2px 10px rgba(0,28,80,.07);max-width:100%;box-sizing:border-box;">
+              <span style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,42px);font-weight:600;color:var(--blue);letter-spacing:.01em;line-height:1.1;">Seguro de Vida Protección</span>
+              <span style="width:1.5px;height:42px;background:#c8d8ee;display:inline-block;flex-shrink:0;"></span>
+              <img src="allianz-logo.svg" alt="Allianz" style="height:38px;width:auto;display:inline-block;flex-shrink:0;">
+            </div>
+            </h1>
+            <p>Una cobertura integral pensada para vos y tu familia. Seguridad. Tranquilidad. Futuro.</p>
+            <div class="hero-actions" style="flex-direction:column;align-items:stretch;gap:10px;max-width:320px;width:100%;">
               <!-- COTIZADOR -->
-              <button class="btn-cotizador" id="btn-abrir-cotizador" onclick="toggleCotizador()">Conocer valores de cobertura</button>
+              <button class="btn-cotizador" id="btn-abrir-cotizador" onclick="toggleCotizador()">Cotizar mi seguro</button>
               <div class="cotizador-panel" id="cotizador-panel">
                 <h3>Ingresá tus datos para cotizar</h3>
                 <div class="cotizador-row">
@@ -1277,10 +1295,7 @@
               <!-- Resultado -->
               <div id="cotizador-resultado"></div>
               <!-- Botones -->
-              <div style="display:flex;gap:12px;flex-wrap:wrap;">
-                <a class="btn-primary" href="#contacto">Agendar una entrevista</a>
-                <a class="btn-secondary" href="#cobertura">Ver cobertura</a>
-              </div>
+              <a class="btn-primary" href="#contacto">Agendar una entrevista</a>
             </div>
             <nav class="mini-nav" aria-label="Secciones de la página">
               <a href="#ventajas">Ventajas</a>
