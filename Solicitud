@@ -73,22 +73,31 @@
     /* ══ HERO STRIP ══ */
     .page-hero{
       background:linear-gradient(135deg,var(--blue),#0b4ca7);
-      color:#fff;padding:32px 0 28px;
+      color:#fff;padding:36px 0 32px;
+    }
+    .page-hero .container{
+      display:flex;justify-content:center;
     }
     .page-hero-inner{
-      display:flex;flex-direction:column;gap:6px;
+      display:flex;flex-direction:column;gap:8px;
+      text-align:center;align-items:center;
+      max-width:560px;width:100%;
     }
     .page-hero .eyebrow{
-      font-size:12px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.08em;color:rgba(255,255,255,.7);
+      font-size:11px;font-weight:700;text-transform:uppercase;
+      letter-spacing:.10em;color:rgba(255,255,255,.65);
     }
     .page-hero h1{
       font-family:'Cormorant Garamond', serif;
-      font-size:clamp(28px,5vw,42px);line-height:1.02;
+      font-size:clamp(30px,5vw,46px);line-height:1.08;
       letter-spacing:-.01em;color:#fff;font-weight:400;
     }
     .page-hero p{
-      font-size:16px;color:rgba(255,255,255,.85);max-width:580px;
+      font-size:16px;color:rgba(255,255,255,.85);max-width:480px;
+    }
+    @media(max-width:480px){
+      .page-hero-inner{text-align:center;align-items:center;}
+      .page-hero h1{font-size:clamp(26px,8vw,34px);}
     }
 
     /* Datos del productor */
@@ -169,6 +178,7 @@
     .field.error input,.field.error select,.field.error textarea{border-color:var(--error)}
     .field-error{font-size:12px;color:var(--error);display:none;margin-top:2px}
     .field.error .field-error{display:block}
+    .field-hint{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.4}
 
     /* Select arrow */
     .field select{
@@ -192,89 +202,100 @@
     }
     .radio-error{font-size:12px;color:var(--error);display:none;margin-top:4px}
     .radio-error.show{display:block}
+    .radio-hint{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.5;padding:10px 12px;background:#f0f7ff;border-radius:10px;border-left:3px solid #7aabdf}
 
-    /* ══ FILE UPLOAD ══ */
-    .file-upload-area{
-      border:2px dashed #c8d8ee;border-radius:16px;
-      padding:24px 16px;text-align:center;
-      background:#f7faff;cursor:pointer;
-      transition:border-color .2s,background .2s;
-      position:relative;
-    }
-    .file-upload-area:hover,.file-upload-area.dragover{
-      border-color:var(--blue);background:var(--blue-soft);
-    }
-    .file-upload-area input[type=file]{
-      position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;
-    }
-    .file-upload-icon{font-size:28px;margin-bottom:8px}
-    .file-upload-text{font-size:14px;color:var(--muted);line-height:1.4}
-    .file-upload-text strong{color:var(--blue)}
-    .file-preview{
-      display:none;
-      align-items:center;gap:10px;
-      background:#e9f8ef;border:1px solid #b6e8cb;
-      border-radius:10px;padding:10px 14px;margin-top:10px;
-      font-size:13px;color:#0e6b35;font-weight:600;
-    }
-    .file-preview.show{display:flex}
-    .file-preview-remove{
-      margin-left:auto;cursor:pointer;color:#c0392b;
-      font-size:18px;line-height:1;background:none;border:none;
-    }
-    .file-upload-error{font-size:12px;color:var(--error);display:none;margin-top:6px}
-    .file-upload-error.show{display:block}
-
-    /* ══ AVISO LEGAL DNI ══ */
-    .legal-notice{
-      background:var(--blue-soft);border:1px solid #c0d5f0;
-      border-radius:16px;padding:16px 18px;
-      font-size:13px;color:#2c4a6e;line-height:1.6;margin-top:18px;
-    }
-    .legal-notice p{margin-bottom:8px}
-    .legal-notice p:last-child{margin-bottom:0}
-
-    /* ══ RESUMEN ══ */
+    /* ══ RESUMEN PREMIUM ══ */
     .summary-block{
-      background:#f7faff;border:1px solid var(--line);
-      border-radius:16px;padding:18px;margin-bottom:20px;
+      background:#fff;
+      border:1px solid #dde8f5;
+      border-radius:20px;
+      padding:0;
+      margin-bottom:16px;
+      overflow:hidden;
+      box-shadow:0 2px 12px rgba(0,32,84,.06);
     }
-    .summary-block h3{
-      font-size:13px;text-transform:uppercase;letter-spacing:.06em;
-      color:var(--muted);font-weight:700;margin-bottom:12px;
+    .summary-block-header{
+      background:linear-gradient(90deg,var(--blue) 0%,#1258c4 100%);
+      padding:11px 20px;
+      display:flex;align-items:center;gap:8px;
     }
+    .summary-block-header h3{
+      font-size:11px;text-transform:uppercase;letter-spacing:.10em;
+      color:rgba(255,255,255,.85);font-weight:700;margin:0;
+    }
+    .summary-block-header .summary-icon{font-size:14px;opacity:.9}
+    .summary-rows-wrap{padding:4px 0}
     .summary-row{
-      display:flex;gap:8px;padding:8px 0;
-      border-bottom:1px solid #edf3fb;font-size:14px;
+      display:flex;gap:8px;padding:10px 20px;
+      border-bottom:1px solid #f0f5fc;font-size:14px;
+      transition:background .15s;
     }
     .summary-row:last-child{border-bottom:none}
-    .summary-row .s-label{color:var(--muted);min-width:160px;flex-shrink:0}
+    .summary-row:hover{background:#fafcff}
+    .summary-row .s-label{color:#7a8fa8;min-width:170px;flex-shrink:0;font-size:13px}
     .summary-row .s-val{font-weight:600;color:var(--text);word-break:break-word}
 
-    /* ══ CHECKBOXES ══ */
+    /* ══ CHECKBOXES PREMIUM ══ */
     .check-group{
-      display:flex;gap:12px;align-items:flex-start;
-      padding:14px 16px;border-radius:14px;
-      border:1.5px solid #c8d8ee;background:#f7faff;
-      margin-bottom:12px;cursor:pointer;transition:border-color .2s;
+      display:flex;gap:14px;align-items:flex-start;
+      padding:15px 18px;border-radius:14px;
+      border:1.5px solid #dde8f5;background:#fafcff;
+      margin-bottom:10px;cursor:pointer;
+      transition:border-color .2s, background .2s, box-shadow .2s;
     }
-    .check-group:hover{border-color:var(--blue)}
+    .check-group:hover{border-color:var(--blue);background:#f4f8ff;box-shadow:0 2px 10px rgba(0,55,129,.08)}
     .check-group input[type=checkbox]{
       width:20px;height:20px;min-width:20px;
       border-radius:6px;cursor:pointer;accent-color:var(--blue);
-      margin-top:1px;
+      margin-top:2px;
     }
-    .check-group span{font-size:14px;color:#2d3b4d;line-height:1.5}
-    .check-error{font-size:12px;color:var(--error);display:none;margin-top:-6px;margin-bottom:8px;padding-left:4px}
+    .check-group span{font-size:13.5px;color:#2d3b4d;line-height:1.55}
+    .check-error{font-size:12px;color:var(--error);display:none;margin-top:-4px;margin-bottom:8px;padding-left:4px}
     .check-error.show{display:block}
 
-    /* Aviso final */
-    .aviso-final{
-      background:#fff8e8;border:1px solid #f0d98a;
-      border-radius:14px;padding:14px 16px;
-      font-size:13px;color:#7a5c00;margin:16px 0;line-height:1.5;
+    /* ══ BLOQUE PRIVACIDAD PREMIUM ══ */
+    .privacy-block-premium{
+      background:linear-gradient(135deg,#f0f7ff 0%,#e8f2fe 100%);
+      border:1px solid #c8ddf5;
+      border-radius:16px;padding:16px 18px;
+      font-size:13px;color:#2c4a6e;margin-bottom:20px;
+      display:flex;gap:12px;align-items:flex-start;
+      box-shadow:0 2px 8px rgba(0,55,129,.06);
     }
-    .aviso-final::before{content:"⚠️ ";font-size:14px}
+    .privacy-block-premium .lock-icon{
+      font-size:22px;flex-shrink:0;margin-top:1px;
+    }
+    .privacy-block-premium p{line-height:1.6;margin-bottom:4px}
+    .privacy-block-premium a{color:var(--blue);font-weight:700;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
+    .privacy-block-premium a:hover{border-color:var(--blue)}
+
+    /* ══ AVISO FINAL PREMIUM ══ */
+    .aviso-final{
+      background:#fffbf0;border:1px solid #e8d98a;
+      border-radius:14px;padding:13px 16px 13px 44px;
+      font-size:12.5px;color:#6b5000;margin:16px 0;line-height:1.6;
+      position:relative;
+    }
+    .aviso-final::before{
+      content:"⚠️";font-size:16px;
+      position:absolute;left:14px;top:13px;
+    }
+
+    /* ══ BOTÓN SUBMIT PREMIUM ══ */
+    .btn-submit-final{
+      background:linear-gradient(135deg,#0e9e4a 0%,#0a7c39 100%);
+      box-shadow:0 6px 20px rgba(14,158,74,.35);
+      border-radius:8px !important;
+      font-size:15px !important;
+      letter-spacing:.02em !important;
+      transition:transform .2s, box-shadow .2s, background .2s !important;
+    }
+    .btn-submit-final:hover{
+      background:linear-gradient(135deg,#0a8a3f 0%,#076b30 100%) !important;
+      box-shadow:0 10px 28px rgba(14,158,74,.45) !important;
+      transform:translateY(-1px);
+    }
+    .btn-submit-final:active{transform:translateY(0);}
 
     /* ══ BOTONES DE NAVEGACIÓN ══ */
     .nav-btns{
@@ -453,9 +474,8 @@
   <div class="page-hero">
     <div class="container">
       <div class="page-hero-inner">
-        <span class="eyebrow">Allianz Argentina · Seguro de Vida</span>
-        <h1>Solicitud preliminar de Seguro de Vida</h1>
-               
+        <span class="eyebrow">Solicitud Vida Protección de Allianz Argentina</span>
+        <h1>¡Ya estás muy cerca<br>de tener tu cobertura!</h1>
 
       </div>
     </div>
@@ -471,16 +491,11 @@
       <div class="step-connector" id="conn-1-2"></div>
       <div class="step" id="s2" role="listitem">
         <div class="step-circle">2</div>
-        <div class="step-label">DNI</div>
+        <div class="step-label">Información<br>médica</div>
       </div>
       <div class="step-connector" id="conn-2-3"></div>
       <div class="step" id="s3" role="listitem">
         <div class="step-circle">3</div>
-        <div class="step-label">Declaración<br>de salud</div>
-      </div>
-      <div class="step-connector" id="conn-3-4"></div>
-      <div class="step" id="s4" role="listitem">
-        <div class="step-circle">4</div>
         <div class="step-label">Confirmación</div>
       </div>
     </div>
@@ -494,9 +509,10 @@
         <!-- ─── ÉXITO ─── -->
         <div id="success-panel" role="status">
           <div class="success-icon">✅</div>
-          <div class="success-title">¡Solicitud enviada correctamente!</div>
+          <div class="success-title">¡Listo! Recibimos tu solicitud.</div>
           <p class="success-msg">
-            Tu asesor personal te contactará en breve para terminar el proceso.
+            En las próximas <strong>24 horas hábiles</strong> tu asesor personal te contactará para verificar datos y forma de pago.<br><br>
+            ¡Gracias por confiar en nosotros!
           </p>
           <div class="success-ref" id="ref-display"></div>
           <br><br>
@@ -506,27 +522,31 @@
         <!-- ─── AVISO LEGAL PREVIO ─── -->
         <div id="aviso-previo" style="background:var(--blue-soft);border:1px solid #c0d5f0;border-radius:18px;padding:18px 20px;margin-bottom:22px;font-size:13px;color:#2c4a6e;line-height:1.7;">
           <div style="display:flex;gap:10px;align-items:flex-start;">
-            <span style="font-size:20px;flex-shrink:0;margin-top:1px;">ℹ️</span>
+            <span style="font-size:20px;flex-shrink:0;margin-top:1px;">👋</span>
            <div>
-  <p style="font-size:14px; color:var(--blue); margin-bottom:6px; font-weight:bold;">Antes de comenzar:</p>
-  <ul style="font-size:14px; color:var(--blue); margin-bottom:6px; padding-left:20px;">
-    <li>Podés cancelar la solicitud en cualquier momento sin compromiso.</li>
-    <li>Será necesario que tengas tu DNI a mano para enviarnos una foto.</li>
-    <li>El envío de esta solicitud <strong>no implica aceptación automática ni inicio de cobertura.</strong></li>
-     </ul>
+  <p style="font-size:14px; color:var(--blue); margin-bottom:8px; font-weight:bold;">Antes de empezar:</p>
+  <ul style="font-size:14px; color:#2c4a6e; margin-bottom:0; padding-left:20px; line-height:2;">
+    <li>Vos tenés el control, podés cancelar en cualquier etapa del proceso sin compromiso.</li>
+    <li>Un asesor te contactará al finalizar para verificar datos y completar el proceso.</li>
+  </ul>
 </div>
-           
           </div>
         </div>
 
         <!-- ─── PASO 1: DATOS PERSONALES ─── -->
         <div class="step-panel visible" id="panel-1">
           <h2 class="step-title">Paso 1 — Datos personales</h2>
-          <p class="step-subtitle">Completá la información para identificarte correctamente.</p>
+
 
           <div class="field" id="f-nombre">
             <label for="nombre">Nombre completo <span class="req">*</span></label>
             <input type="text" id="nombre" name="nombre" placeholder="Ej: María García" autocomplete="name" />
+            <span class="field-error">Este campo es obligatorio.</span>
+          </div>
+
+          <div class="field" id="f-dni">
+            <label for="dni">DNI <span class="req">*</span></label>
+            <input type="text" id="dni" name="dni" placeholder="Ej: 28.456.789" inputmode="numeric" />
             <span class="field-error">Este campo es obligatorio.</span>
           </div>
 
@@ -553,65 +573,14 @@
           </div>
 
           <div class="nav-btns">
-            <button class="btn-next" onclick="document.getElementById('aviso-previo').style.display='none'; goTo(2)">Siguiente → DNI</button>
+            <button class="btn-next" onclick="document.getElementById('aviso-previo').style.display='none'; goTo(2)">Siguiente → Declaración de salud</button>
           </div>
           <p class="step-privacy-note">Al presionar Siguiente, confirmás haber leído y aceptado nuestra <a href="politica-privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>.</p>
         </div>
 
-        <!-- ─── PASO 2: DNI ─── -->
+        <!-- ─── PASO 2: DECLARACIÓN DE SALUD ─── -->
         <div class="step-panel" id="panel-2">
-          <h2 class="step-title">Paso 2 — Carga de DNI</h2>
-          <p class="step-subtitle">Subí una foto clara del frente y dorso de tu DNI.</p>
-
-          <!-- Inputs ocultos FUERA del área clickeable (evita doble-trigger en iOS/Android) -->
-          <input type="file" id="dni-frente" name="dni_frente" accept=".jpg,.jpeg,.png,.pdf" capture="environment" style="display:none" />
-          <input type="file" id="dni-dorso"  name="dni_dorso"  accept=".jpg,.jpeg,.png,.pdf" capture="environment" style="display:none" />
-
-          <!-- Frente -->
-          <div class="field" id="f-dni-frente">
-            <label>Frente del DNI <span class="req">*</span></label>
-            <div class="file-upload-area" id="area-frente">
-              <div class="file-upload-icon">📷</div>
-              <div class="file-upload-text"><strong>Tocá aquí para subir o sacar foto</strong><br>JPG, PNG o PDF</div>
-            </div>
-            <div class="file-preview" id="prev-frente">
-              <span>✅</span>
-              <span id="prev-frente-name"></span>
-              <button class="file-preview-remove" onclick="removeFile('frente')" type="button">✕</button>
-            </div>
-            <span class="file-upload-error" id="err-frente">Cargá la foto del frente del DNI.</span>
-          </div>
-
-          <!-- Dorso -->
-          <div class="field" id="f-dni-dorso">
-            <label>Dorso del DNI <span class="req">*</span></label>
-            <div class="file-upload-area" id="area-dorso">
-              <div class="file-upload-icon">📷</div>
-              <div class="file-upload-text"><strong>Tocá aquí para subir o sacar foto</strong><br>JPG, PNG o PDF</div>
-            </div>
-            <div class="file-preview" id="prev-dorso">
-              <span>✅</span>
-              <span id="prev-dorso-name"></span>
-              <button class="file-preview-remove" onclick="removeFile('dorso')" type="button">✕</button>
-            </div>
-            <span class="file-upload-error" id="err-dorso">Cargá la foto del dorso del DNI.</span>
-          </div>
-
-          <!-- Aviso legal -->
-          <div class="legal-notice">
-            <p>La documentación y datos suministrados serán utilizados exclusivamente para la verificación de identidad, análisis preliminar y formulación de una propuesta de seguro.</p>
-                    
-          </div>
-
-          <div class="nav-btns">
-            <button class="btn-prev" onclick="goTo(1)">← Cancelar y volver atrás</button>
-            <button class="btn-next" onclick="goTo(3)">Siguiente → Salud</button>
-          </div>
-        </div>
-
-        <!-- ─── PASO 3: DECLARACIÓN DE SALUD ─── -->
-        <div class="step-panel" id="panel-3">
-          <h2 class="step-title">Paso 3 — Declaración Jurada de Salud</h2>
+          <h2 class="step-title">Paso 2 — Información y datos médicos</h2>
           <p class="step-subtitle">Completá los datos con información verdadera y actualizada.</p>
 
           <div class="field" id="f-sexo">
@@ -656,6 +625,7 @@
               </label>
             </div>
             <span class="radio-error" id="err-tratamiento">Seleccioná una opción.</span>
+            <p class="radio-hint">💡 Tener antecedentes médicos no implica rechazo automático. La compañía evalúa cada caso en forma individual.</p>
           </div>
 
           <!-- Campo condicional -->
@@ -666,50 +636,54 @@
           </div>
 
           <div class="nav-btns">
-            <button class="btn-prev" onclick="goTo(2)">← Cancelar y volver atrás </button>
-            <button class="btn-next" onclick="goTo(4)">Siguiente → Confirmación</button>
+            <button class="btn-prev" onclick="goTo(1)">← Cancelar y volver atrás </button>
+            <button class="btn-next" onclick="goTo(3)">Siguiente → Confirmación</button>
           </div>
         </div>
 
-        <!-- ─── PASO 4: CONFIRMACIÓN ─── -->
-        <div class="step-panel" id="panel-4">
-          <h2 class="step-title">Paso 4 — Confirmación</h2>
-          <p class="step-subtitle">Revisá tus datos antes de enviar la solicitud.</p>
+        <!-- ─── PASO 3: CONFIRMACIÓN ─── -->
+        <div class="step-panel" id="panel-3">
+          <h2 class="step-title">Paso 3 — Confirmación</h2>
+          <p class="step-subtitle">Casi listo — revisá que todo esté bien y envianos tu solicitud.</p>
 
           <!-- Resumen datos personales -->
           <div class="summary-block">
-            <h3>Datos personales</h3>
-            <div class="summary-row"><span class="s-label">Nombre completo</span><span class="s-val" id="sum-nombre">—</span></div>
-            <div class="summary-row"><span class="s-label">Teléfono</span><span class="s-val" id="sum-telefono">—</span></div>
-            <div class="summary-row"><span class="s-label">Email</span><span class="s-val" id="sum-email">—</span></div>
-            <div class="summary-row"><span class="s-label">Estado civil</span><span class="s-val" id="sum-estado-civil">—</span></div>
-          </div>
-
-          <!-- Resumen DNI -->
-          <div class="summary-block">
-            <h3>Documentación</h3>
-            <div class="summary-row"><span class="s-label">DNI Frente</span><span class="s-val" id="sum-dni-frente">—</span></div>
-            <div class="summary-row"><span class="s-label">DNI Dorso</span><span class="s-val" id="sum-dni-dorso">—</span></div>
+            <div class="summary-block-header">
+              <span class="summary-icon">👤</span>
+              <h3>Datos personales</h3>
+            </div>
+            <div class="summary-rows-wrap">
+              <div class="summary-row"><span class="s-label">Nombre completo</span><span class="s-val" id="sum-nombre">—</span></div>
+              <div class="summary-row"><span class="s-label">DNI</span><span class="s-val" id="sum-dni">—</span></div>
+              <div class="summary-row"><span class="s-label">Teléfono</span><span class="s-val" id="sum-telefono">—</span></div>
+              <div class="summary-row"><span class="s-label">Email</span><span class="s-val" id="sum-email">—</span></div>
+              <div class="summary-row"><span class="s-label">Estado civil</span><span class="s-val" id="sum-estado-civil">—</span></div>
+            </div>
           </div>
 
           <!-- Resumen salud -->
           <div class="summary-block">
-            <h3>Declaración jurada de salud</h3>
-            <div class="summary-row"><span class="s-label">Sexo</span><span class="s-val" id="sum-sexo">—</span></div>
-            <div class="summary-row"><span class="s-label">Altura</span><span class="s-val" id="sum-altura">—</span></div>
-            <div class="summary-row"><span class="s-label">Peso</span><span class="s-val" id="sum-peso">—</span></div>
-            <div class="summary-row"><span class="s-label">Ocupación / profesión</span><span class="s-val" id="sum-ocupacion">—</span></div>
-            <div class="summary-row"><span class="s-label">Tratamiento médico</span><span class="s-val" id="sum-tratamiento">—</span></div>
-            <div class="summary-row" id="sum-row-ampliar" style="display:none">
-              <span class="s-label">Detalle de tratamiento</span>
-              <span class="s-val" id="sum-ampliar">—</span>
+            <div class="summary-block-header">
+              <span class="summary-icon">🏥</span>
+              <h3>Información y datos médicos</h3>
+            </div>
+            <div class="summary-rows-wrap">
+              <div class="summary-row"><span class="s-label">Sexo</span><span class="s-val" id="sum-sexo">—</span></div>
+              <div class="summary-row"><span class="s-label">Altura</span><span class="s-val" id="sum-altura">—</span></div>
+              <div class="summary-row"><span class="s-label">Peso</span><span class="s-val" id="sum-peso">—</span></div>
+              <div class="summary-row"><span class="s-label">Ocupación / profesión</span><span class="s-val" id="sum-ocupacion">—</span></div>
+              <div class="summary-row"><span class="s-label">Tratamiento médico</span><span class="s-val" id="sum-tratamiento">—</span></div>
+              <div class="summary-row" id="sum-row-ampliar" style="display:none">
+                <span class="s-label">Detalle de tratamiento</span>
+                <span class="s-val" id="sum-ampliar">—</span>
+              </div>
             </div>
           </div>
 
           <!-- Consentimientos -->
           <label class="check-group" id="cg-consentimiento">
             <input type="checkbox" id="chk-datos" />
-            <span>Acepto el tratamiento de mis datos personales y la utilización de la documentación enviada para la evaluación preliminar de la solicitud.</span>
+            <span>Acepto el tratamiento de mis datos personales para la evaluación preliminar de la solicitud.</span>
           </label>
           <span class="check-error" id="err-chk-datos">Debés aceptar el tratamiento de datos para continuar.</span>
 
@@ -724,11 +698,11 @@
           </div>
 
           <!-- Bloque privacidad -->
-          <div style="background:var(--blue-soft);border:1px solid #c0d5f0;border-radius:14px;padding:14px 16px;font-size:13px;color:#2c4a6e;margin-bottom:18px;display:flex;gap:10px;align-items:flex-start;">
-            <span style="font-size:18px">🔒</span>
+          <div class="privacy-block-premium">
+            <span class="lock-icon">🔒</span>
             <div>
-              Tus datos serán tratados con confidencialidad y utilizados únicamente para gestionar esta solicitud preliminar.
-              <br><a href="politica-privacidad.html" target="_blank" rel="noopener" style="color:var(--blue);font-weight:700">Política de privacidad →</a>
+              <p>Tus datos serán tratados con confidencialidad y utilizados únicamente para gestionar esta solicitud preliminar.</p>
+              <a href="politica-privacidad.html" target="_blank" rel="noopener">Política de privacidad →</a>
             </div>
           </div>
 
@@ -737,8 +711,8 @@
           </div>
 
           <div class="nav-btns">
-            <button class="btn-prev" onclick="goTo(3)">← Cancelar y volver atrás </button>
-            <button class="btn-submit-final" id="btn-enviar" onclick="enviarSolicitud()">📤 ENVIAR SOLICITUD</button>
+            <button class="btn-prev" onclick="goTo(2)">← Cancelar y volver atrás </button>
+            <button class="btn-submit-final" id="btn-enviar" onclick="enviarSolicitud()">Confirmar y enviar solicitud →</button>
           </div>
         </div>
 
@@ -825,21 +799,20 @@
   // ESTADO GLOBAL
   // ─────────────────────────────────────────────
   var currentStep = 1;
-  var files = { frente: null, dorso: null };
   var tratamientoVal = '';
 
   // ─────────────────────────────────────────────
   // STEPPER
   // ─────────────────────────────────────────────
   function updateStepper(step){
-    for(var i=1;i<=4;i++){
+    for(var i=1;i<=3;i++){
       var el = document.getElementById('s'+i);
       el.classList.remove('active','done');
       if(i < step) el.classList.add('done');
       else if(i === step) el.classList.add('active');
     }
     // Conectores
-    for(var j=1;j<=3;j++){
+    for(var j=1;j<=2;j++){
       var conn = document.getElementById('conn-'+j+'-'+(j+1));
       conn.classList.toggle('done', j < step);
     }
@@ -853,8 +826,8 @@
     if(target > currentStep){
       if(!validateStep(currentStep)) return;
     }
-    // Si llegamos al paso 4, poblar resumen
-    if(target === 4) populateSummary();
+    // Si llegamos al paso 3, poblar resumen
+    if(target === 3) populateSummary();
 
     document.getElementById('panel-'+currentStep).classList.remove('visible');
     currentStep = target;
@@ -869,7 +842,6 @@
   function validateStep(step){
     if(step===1) return validateStep1();
     if(step===2) return validateStep2();
-    if(step===3) return validateStep3();
     return true;
   }
 
@@ -881,31 +853,24 @@
 
   function validateStep1(){
     var ok = true;
-    var nombre = document.getElementById('nombre').value.trim();
+    var nombre   = document.getElementById('nombre').value.trim();
+    var dni      = document.getElementById('dni').value.trim();
     var telefono = document.getElementById('telefono').value.trim();
-    var email = document.getElementById('email').value.trim();
-    var civil = document.getElementById('estado-civil').value;
+    var email    = document.getElementById('email').value.trim();
+    var civil    = document.getElementById('estado-civil').value;
 
-    setError('f-nombre', !nombre);
-    setError('f-telefono', !telefono);
+    setError('f-nombre',      !nombre);
+    setError('f-dni',         !dni);
+    setError('f-telefono',    !telefono);
     var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    setError('f-email', !emailOk);
-    setError('f-estado-civil', !civil);
+    setError('f-email',       !emailOk);
+    setError('f-estado-civil',!civil);
 
-    if(!nombre||!telefono||!emailOk||!civil) ok=false;
+    if(!nombre||!dni||!telefono||!emailOk||!civil) ok=false;
     return ok;
   }
 
   function validateStep2(){
-    var ok = true;
-    var errF = document.getElementById('err-frente');
-    var errD = document.getElementById('err-dorso');
-    if(!files.frente){ errF.classList.add('show'); ok=false; } else { errF.classList.remove('show'); }
-    if(!files.dorso){ errD.classList.add('show'); ok=false; } else { errD.classList.remove('show'); }
-    return ok;
-  }
-
-  function validateStep3(){
     var ok = true;
     var sexo = document.getElementById('sexo').value;
     var altura = document.getElementById('altura').value.trim();
@@ -951,62 +916,14 @@
   }
 
   // ─────────────────────────────────────────────
-  // CARGA DE ARCHIVOS
-  // ─────────────────────────────────────────────
-  // ─────────────────────────────────────────────
-  // CARGA DE ARCHIVOS — click y change
-  // ─────────────────────────────────────────────
-  ['frente','dorso'].forEach(function(side){
-    var area  = document.getElementById('area-'+side);
-    var input = document.getElementById('dni-'+side);
-
-    // Tap / click en el área dispara el input oculto
-    area.addEventListener('click', function(e){
-      e.stopPropagation();
-      input.click();
-    });
-
-    // Cuando el usuario selecciona archivo
-    input.addEventListener('change', function(){
-      if(this.files && this.files[0]) handleFile(side, this.files[0]);
-    });
-
-    // Drag & Drop
-    area.addEventListener('dragover',  function(e){ e.preventDefault(); area.classList.add('dragover'); });
-    area.addEventListener('dragleave', function()  { area.classList.remove('dragover'); });
-    area.addEventListener('drop',      function(e){
-      e.preventDefault();
-      area.classList.remove('dragover');
-      var f = e.dataTransfer.files[0];
-      if(f) handleFile(side, f);
-    });
-  });
-
-  function handleFile(side, file){
-    files[side] = file;
-    document.getElementById('prev-'+side+'-name').textContent = file.name;
-    document.getElementById('prev-'+side).classList.add('show');
-    document.getElementById('area-'+side).style.display = 'none';
-    document.getElementById('err-'+side).classList.remove('show');
-  }
-
-  function removeFile(side){
-    files[side] = null;
-    document.getElementById('dni-'+side).value = '';
-    document.getElementById('prev-'+side).classList.remove('show');
-    document.getElementById('area-'+side).style.display = '';
-  }
-
-  // ─────────────────────────────────────────────
-  // RESUMEN PASO 4
+  // RESUMEN PASO 3
   // ─────────────────────────────────────────────
   function populateSummary(){
-    document.getElementById('sum-nombre').textContent = document.getElementById('nombre').value.trim();
+    document.getElementById('sum-nombre').textContent   = document.getElementById('nombre').value.trim();
+    document.getElementById('sum-dni').textContent      = document.getElementById('dni').value.trim();
     document.getElementById('sum-telefono').textContent = document.getElementById('telefono').value.trim();
     document.getElementById('sum-email').textContent = document.getElementById('email').value.trim();
     document.getElementById('sum-estado-civil').textContent = document.getElementById('estado-civil').value;
-    document.getElementById('sum-dni-frente').textContent = files.frente ? '✅ ' + files.frente.name : (files._frente_name ? '✅ ' + files._frente_name : '—');
-    document.getElementById('sum-dni-dorso').textContent  = files.dorso  ? '✅ ' + files.dorso.name  : (files._dorso_name  ? '✅ ' + files._dorso_name  : '—');
     document.getElementById('sum-sexo').textContent = document.getElementById('sexo').value;
     document.getElementById('sum-altura').textContent = document.getElementById('altura').value + ' cm';
     document.getElementById('sum-peso').textContent = document.getElementById('peso').value + ' kg';
@@ -1058,6 +975,7 @@
 
     // Datos personales
     fd.append('Nombre completo',        document.getElementById('nombre').value.trim());
+    fd.append('DNI',                    document.getElementById('dni').value.trim());
     fd.append('Teléfono',               document.getElementById('telefono').value.trim());
     fd.append('Email',                  document.getElementById('email').value.trim());
     fd.append('Estado civil',           document.getElementById('estado-civil').value);
@@ -1076,10 +994,6 @@
     fd.append('Fecha y hora de envío',  ahora);
     fd.append('Referencia de solicitud', referencia);
 
-    // Archivos DNI
-    if(files.frente) fd.append('DNI Frente', files.frente, files.frente.name);
-    if(files.dorso)  fd.append('DNI Dorso',  files.dorso,  files.dorso.name);
-
     // ─────────────────────────────────────────
     // ► REEMPLAZAR la URL con tu Formspree ID
     // ► Ejemplo: 'https://formspree.io/f/abcdefgh'
@@ -1092,11 +1006,11 @@
     .then(function(res){
       if(res.ok){
         // Éxito
-        document.getElementById('panel-4').classList.remove('visible');
+        document.getElementById('panel-3').classList.remove('visible');
         document.getElementById('aviso-previo').style.display='none';
         document.getElementById('success-panel').style.display='block';
         document.getElementById('ref-display').textContent = referencia;
-        updateStepper(5); // Marca todos como done
+        updateStepper(4); // Marca todos como done
         window.scrollTo({top:0, behavior:'smooth'});
       } else {
         throw new Error('Error en el envío');
@@ -1112,13 +1026,13 @@
   // Stepper: cuando éxito marcar todos done
   var origUpdate = updateStepper;
   updateStepper = function(step){
-    if(step===5){
-      for(var i=1;i<=4;i++){
+    if(step===4){
+      for(var i=1;i<=3;i++){
         var el=document.getElementById('s'+i);
         el.classList.remove('active');
         el.classList.add('done');
       }
-      for(var j=1;j<=3;j++){
+      for(var j=1;j<=2;j++){
         document.getElementById('conn-'+j+'-'+(j+1)).classList.add('done');
       }
       return;
@@ -1133,6 +1047,7 @@
     var state = {
       step: currentStep,
       nombre:       document.getElementById('nombre').value,
+      dni:          document.getElementById('dni').value,
       telefono:     document.getElementById('telefono').value,
       email:        document.getElementById('email').value,
       estado_civil: document.getElementById('estado-civil').value,
@@ -1141,9 +1056,7 @@
       peso:         document.getElementById('peso').value,
       ocupacion:    document.getElementById('ocupacion').value,
       tratamiento:  tratamientoVal,
-      ampliar:      document.getElementById('ampliar').value,
-      dni_frente:   files.frente ? files.frente.name : '',
-      dni_dorso:    files.dorso  ? files.dorso.name  : ''
+      ampliar:      document.getElementById('ampliar').value
     };
     sessionStorage.setItem('solicitud_state', JSON.stringify(state));
   }
@@ -1156,6 +1069,7 @@
 
     // Restaurar campos
     document.getElementById('nombre').value       = s.nombre       || '';
+    document.getElementById('dni').value          = s.dni          || '';
     document.getElementById('telefono').value     = s.telefono     || '';
     document.getElementById('email').value        = s.email        || '';
     document.getElementById('estado-civil').value = s.estado_civil || '';
@@ -1171,30 +1085,14 @@
       document.getElementById('ampliar').value = s.ampliar;
     }
 
-    // Guardar nombres de DNI para mostrar en resumen
-    // (los File objects no se pueden serializar, mostramos el nombre guardado)
-    if(s.dni_frente){
-      document.getElementById('prev-frente-name').textContent = s.dni_frente;
-      document.getElementById('prev-frente').classList.add('show');
-      document.getElementById('area-frente').style.display = 'none';
-      // Marcamos como "nombre conocido" para el resumen
-      files._frente_name = s.dni_frente;
-    }
-    if(s.dni_dorso){
-      document.getElementById('prev-dorso-name').textContent = s.dni_dorso;
-      document.getElementById('prev-dorso').classList.add('show');
-      document.getElementById('area-dorso').style.display = 'none';
-      files._dorso_name = s.dni_dorso;
-    }
-
     // Ir al paso guardado (sin validar)
     if(s.step && s.step > 1){
       document.getElementById('panel-'+currentStep).classList.remove('visible');
       currentStep = s.step;
       document.getElementById('panel-'+currentStep).classList.add('visible');
       updateStepper(currentStep);
-      // Si vuelve al paso 4, repoblar el resumen
-      if(currentStep === 4) populateSummary();
+      // Si vuelve al paso 3, repoblar el resumen
+      if(currentStep === 3) populateSummary();
     }
   }
 
