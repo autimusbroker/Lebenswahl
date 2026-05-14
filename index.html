@@ -467,6 +467,9 @@
 .final-cta h2{margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);line-height:1.06;font-weight:400}
     .final-cta p{margin:0 0 20px;font-size:18px;color:rgba(255,255,255,.88);max-width:620px}
     .final-cta .btn-primary{display:inline-block}
+    .final-cta-grid{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center
+    }
     .final-cta-grid-contact{
       display:flex;
       flex-direction:column;
@@ -602,7 +605,7 @@
     }
 
     @media (max-width: 980px){
-      .hero-grid,.cover-grid,.final-cta-grid-contact,.footer-grid{grid-template-columns:1fr}
+      .hero-grid,.cover-grid,.final-cta-grid,.footer-grid{grid-template-columns:1fr}
       .adv-grid{grid-template-columns:1fr}
       .nav{display:none}
       .ph{min-height:240px}
@@ -750,12 +753,26 @@
     .btn-wa-send:hover{opacity:.88}
 
     /* contratar panel */
-    .contratar-texto{
-      font-size:15px;color:#3a4f68;line-height:1.8;
-      margin-bottom:20px;font-weight:400;
+    .contratar-pasos{
+      margin:0 0 4px;
+      padding-left:20px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
     }
-    .contratar-divider{border:none;border-top:1px solid var(--line);margin:18px 0}
-    .contratar-sub{font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.6;font-style:italic}
+    .contratar-pasos li{
+      font-size:15px;
+      color:#2d3f57;
+      line-height:1.5;
+      font-weight:400;
+      padding-left:4px;
+    }
+    .contratar-pasos li::marker{
+      color:var(--blue);
+      font-weight:700;
+    }
+    .contratar-divider{border:none;border-top:1px solid var(--line);margin:16px 0}
+    .contratar-sub{font-size:13px;color:var(--muted);margin:0 0 10px;line-height:1.5;font-weight:500}
     .btn-ir-solicitud{
       display:inline-block;padding:12px 22px;border-radius:4px;
       background:var(--blue);color:#fff;
@@ -1131,6 +1148,113 @@
     .btn-cookie-accept:hover{opacity:.88}
     .btn-cookie-cancel:hover{background:rgba(255,255,255,.20)}
 
+    /* ── Formulario de contacto ── */
+    .contact-form-wrap{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.25);
+      border-radius:24px;
+      padding:24px 22px;
+      min-height:260px;
+    }
+    .form-title{
+      margin:0 0 18px;
+      font-size:17px;
+      font-weight:700;
+      color:#fff;
+      line-height:1.3;
+    }
+    .contact-form{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .form-group{
+      display:flex;
+      flex-direction:column;
+      gap:5px;
+    }
+    .form-group label{
+      font-size:13px;
+      font-weight:700;
+      color:rgba(255,255,255,.85);
+    }
+    .form-group input{
+      padding:11px 14px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.30);
+      background:rgba(255,255,255,.15);
+      color:#fff;
+      font-size:15px;
+      outline:none;
+      transition:border-color .2s;
+    }
+    .form-group input::placeholder{color:rgba(255,255,255,.55)}
+    .form-group input:focus{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.22)}
+    .btn-submit{
+      margin-top:6px;
+      padding:14px 20px;
+      border-radius:4px;
+      border:1px solid rgba(255,255,255,.35);
+      background:rgba(255,255,255,.15);
+      color:#fff;
+      font-family:'Raleway',sans-serif;
+      font-weight:600;
+      font-size:14px;
+      letter-spacing:.04em;
+      cursor:pointer;
+      transition:background .2s;
+    }
+    .btn-submit:hover{background:rgba(255,255,255,.28)}
+    .form-note{
+      margin:10px 0 0;
+      font-size:12px;
+      color:rgba(255,255,255,.60);
+      text-align:center;
+    }
+    .form-success{
+      margin-top:16px;
+      padding:18px;
+      border-radius:16px;
+      background:rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.35);
+      text-align:center;
+    }
+    .form-success-icon{
+      font-size:32px;
+      color:#5dffa0;
+      margin-bottom:8px;
+    }
+    .form-success-msg{
+      margin:0;
+      color:#fff;
+      font-size:16px;
+      font-weight:700;
+      line-height:1.5;
+    }
+    /* ── Estilos calendario / horario (agenda entrevista) ── */
+    .agenda-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    @media(max-width:500px){.agenda-grid{grid-template-columns:1fr}}
+    .form-group select{
+      padding:11px 14px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.30);
+      background:rgba(255,255,255,.15);
+      color:#fff;
+      font-size:15px;
+      outline:none;
+      transition:border-color .2s;
+      -webkit-appearance:none;
+      appearance:none;
+      cursor:pointer;
+    }
+    .form-group select:focus{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.22)}
+    .form-group select option{background:#1a2a40;color:#fff}
+    .form-group select option:disabled{color:#888}
+    .form-group select option.ocupado{color:#888 !important}
   </style>
 </head>
 <body>
@@ -1163,16 +1287,21 @@
     <div class="modal-box">
       <button class="modal-close" onclick="cerrarModal('contratar-modal')">✕</button>
       <h4>Cómo contratar este plan</h4>
-      <p class="contratar-texto">
-        En Lebenswahl creemos que la protección de una familia merece un análisis previo, profesional y personalizado.<br><br>
-        Contactanos por WhatsApp o mail: un asesor te guiará en cada paso, sin apuro y sin compromiso.
-      </p>
-      <a href="https://wa.me/5491127832498?text=Hola%2C%20quiero%20contratar%20un%20seguro%20Vida%20Protecci%C3%B3n." target="_blank" rel="noopener" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;margin-bottom:4px">
+      <p style="font-size:13px;font-weight:700;color:var(--blue);letter-spacing:.04em;text-transform:uppercase;margin:0 0 12px;">Contratación 100% online</p>
+      <ol class="contratar-pasos">
+        <li>Completás tus datos y una declaración de salud </li>
+        <li>Se analiza tu solicitud</li>
+        <li>Si es aprobada, tu póliza es emitida por Allianz</li>
+        <li>Luego de la emisión, tenés cobertura inmediata</li>
+      </ol>
+      <hr class="contratar-divider">
+      <p class="contratar-sub">¿Querés que un asesor te acompañe en el proceso?</p>
+      <a href="https://wa.me/5491127832498?text=Hola%2C%20quiero%20contratar%20mi%20seguro%20de%20vida." target="_blank" rel="noopener" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;width:100%;justify-content:center;">
         <svg viewBox="0 0 32 32" width="15" height="15" fill="#fff"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.829.742 5.484 2.042 7.789L0 32l8.418-2.01A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.765-1.849l-.484-.287-5.003 1.195 1.235-4.865-.317-.5A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.354-1.162-2.718-1.295-.365-.133-.63-.199-.896.199-.265.398-1.029 1.295-1.261 1.561-.232.265-.465.298-.863.1-.398-.199-1.681-.62-3.203-1.977-1.183-1.056-1.982-2.36-2.214-2.758-.232-.398-.025-.613.175-.811.179-.178.398-.465.597-.697.199-.232.265-.398.398-.664.133-.265.066-.497-.033-.696-.1-.199-.896-2.16-1.228-2.957-.323-.776-.651-.671-.896-.683l-.764-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.853 1.626 4.119c.199.265 2.808 4.287 6.802 6.014.951.41 1.693.655 2.271.839.954.304 1.823.261 2.51.158.765-.114 2.354-.962 2.686-1.891.332-.93.332-1.727.232-1.891-.099-.166-.365-.265-.763-.464z"/></svg>
         Consultá por WhatsApp
       </a>
       <hr class="contratar-divider">
-      <p class="contratar-sub">Si ya hablaste con nuestro equipo y estás listo para avanzar, podés iniciar la solicitud:</p>
+      <p class="contratar-sub">¿Ya estás listo para avanzar?</p>
       <a href="https://www.lebenswahl.com/Solicitud" class="btn-ir-solicitud" target="_blank" rel="noopener">Iniciar solicitud de contratación</a>
     </div>
   </div>
@@ -1422,10 +1551,10 @@
     <section id="contacto" aria-labelledby="contacto-titulo">
       <div class="container">
         <div class="final-cta">
-          <div class="final-cta-grid-contact">
+          <div class="final-cta-grid">
             <div>
-              <h2 id="contacto-titulo" style="padding-top:4px">¿Necesitás asesoramiento?</h2>
-              <p>Contactanos por WhatsApp o mail. Un asesor especializado te responde sin compromiso.</p>
+              <h2 id="contacto-titulo" style="padding-top:4px">Agendá tu entrevista</h2>
+              <p>Elegí el día y horario que más te convenga. Un asesor te confirmará la entrevista por mensaje o mail.</p>
               <div style="margin-top:18px;display:flex;flex-direction:column;gap:10px;">
                 <a href="https://wa.me/5491127832498?text=Hola%2C%20estoy%20interesado%20en%20un%20seguro%20Vida%20Protecci%C3%B3n." target="_blank" rel="noopener"
                   style="display:flex;align-items:center;gap:10px;color:#fff;font-size:15px;font-weight:600;text-decoration:none;opacity:.92;">
@@ -1439,6 +1568,48 @@
                   <span style="background:rgba(255,255,255,.18);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;font-size:16px;">✉️</span>
                   contacto@lebenswahl.com
                 </a>
+              </div>
+            </div>
+            <div class="contact-form-wrap">
+              <h3 class="form-title">Agendá tu entrevista con un asesor</h3>
+              <form class="contact-form" id="contacto-form" novalidate>
+                <input type="hidden" name="_subject" value="Nueva solicitud de entrevista - Lebenswahl">
+                <div class="form-group">
+                  <label for="nombre">Nombre completo</label>
+                  <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" placeholder="tu@email.com" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                  <label for="telefono">Teléfono de contacto</label>
+                  <input type="tel" id="telefono" name="telefono" placeholder="Ej: +54 9 11 1234-5678" required autocomplete="tel">
+                </div>
+                <div class="agenda-grid">
+                  <div class="form-group">
+                    <label for="fecha-entrevista">Día de entrevista</label>
+                    <select id="fecha-entrevista" name="Día de entrevista" required>
+                      <option value="" disabled selected>Elegí un día</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="horario-entrevista">Horario</label>
+                    <select id="horario-entrevista" name="Horario de entrevista" required>
+                      <option value="" disabled selected>Elegí un horario</option>
+                      <option value="10:00 hs" id="h10">10:00 hs</option>
+                      <option value="14:00 hs" id="h14">14:00 hs</option>
+                      <option value="16:00 hs" id="h16">16:00 hs</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="btn-submit">Confirmar entrevista</button>
+                <p id="form-error" class="form-note" style="display:none;color:#ffcccc;">Hubo un problema al enviar. Por favor intentá nuevamente.</p>
+              </form>
+              <p class="form-note">Tu información es confidencial. Sin compromiso.</p>
+              <div class="form-success" id="form-success" style="display:none">
+                <div class="form-success-icon">✓</div>
+                <p class="form-success-msg">¡Muchas gracias por tu interés!<br>Un asesor te estará confirmando la entrevista por mensaje o mail.</p>
               </div>
             </div>
           </div>
@@ -1524,6 +1695,100 @@
       localStorage.setItem('lw_cookies','declined');
       document.getElementById('cookie-banner').classList.add('hidden');
     }
+  </script>
+
+  <script>
+    // ── Formulario agenda entrevista ──
+    (function(){
+
+      // Generar días hábiles 2026 (lunes a viernes)
+      var sel = document.getElementById('fecha-entrevista');
+      var meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+      var dias  = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+      var hoy   = new Date();
+      hoy.setHours(0,0,0,0);
+      var d = new Date(2026,4,1); // 1 mayo 2026
+      var fin = new Date(2026,11,31);
+      while(d <= fin){
+        var dow = d.getDay();
+        if(dow >= 1 && dow <= 5){ // lun-vie
+          var opt = document.createElement('option');
+          var label = dias[dow]+' '+d.getDate()+' de '+meses[d.getMonth()]+' 2026';
+          opt.value = label;
+          opt.textContent = label;
+          sel.appendChild(opt);
+        }
+        d.setDate(d.getDate()+1);
+      }
+
+      // Bloquear 16hs en lunes, miércoles y viernes
+      sel.addEventListener('change', function(){
+        var val = sel.value;
+        var h16 = document.getElementById('h16');
+        var horSel = document.getElementById('horario-entrevista');
+        var esOcupado = val.startsWith('lunes') || val.toLowerCase().indexOf('mi') === 0 && val.toLowerCase().indexOf('rcoles') > 0 || val.startsWith('viernes');
+        if(esOcupado){
+          h16.disabled = true;
+          h16.textContent = '16:00 hs (ocupado)';
+          h16.classList.add('ocupado');
+          if(horSel.value === '16:00 hs') horSel.value = '';
+        } else {
+          h16.disabled = false;
+          h16.textContent = '16:00 hs';
+          h16.classList.remove('ocupado');
+        }
+      });
+
+      // Envío del formulario
+      var form = document.getElementById('contacto-form');
+      var success = document.getElementById('form-success');
+      var errorMsg = document.getElementById('form-error');
+      if(!form) return;
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        if(errorMsg) errorMsg.style.display = 'none';
+
+        var nombre = form.querySelector('#nombre').value.trim();
+        var email  = form.querySelector('#email').value.trim();
+        var tel    = form.querySelector('#telefono').value.trim();
+        var fecha  = document.getElementById('fecha-entrevista').value;
+        var hora   = document.getElementById('horario-entrevista').value;
+
+        if(!nombre || !email || !tel || !fecha || !hora){
+          if(errorMsg){
+            errorMsg.textContent = 'Por favor completá todos los campos antes de confirmar.';
+            errorMsg.style.display = 'block';
+          }
+          return;
+        }
+
+        var data = new FormData(form);
+        data.set('_replyto', email);
+
+        fetch('https://formspree.io/f/xlgzbnpd', {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(function(res){
+          return res.json().then(function(json){ return {ok: res.ok, json: json}; });
+        })
+        .then(function(r){
+          if(r.ok){
+            form.style.display = 'none';
+            if(success) success.style.display = 'block';
+          } else {
+            console.error('Formspree error:', r.json);
+            if(errorMsg) errorMsg.style.display = 'block';
+          }
+        })
+        .catch(function(err){
+          console.error('Fetch error:', err);
+          if(errorMsg) errorMsg.style.display = 'block';
+        });
+      });
+    })();
   </script>
 
   <script>
