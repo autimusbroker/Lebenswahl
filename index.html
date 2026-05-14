@@ -156,7 +156,31 @@
   }
   </script>
 
+  <!-- ───── SCHEMA.ORG — BreadcrumbList ───── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://www.lebenswahl.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Seguro de Vida Protección Allianz",
+        "item": "https://www.lebenswahl.com"
+      }
+    ]
+  }
+  </script>
+
   <link rel="icon" type="image/png" href="Logo Horizontal.png" />
+  <meta name="theme-color" content="#002d6e" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -260,24 +284,31 @@
       letter-spacing:-.02em;
       font-weight:500;
     }
-    .hero-copy p{
-      margin:0 0 22px;
-      font-size:18px;
+
+    .hero-copy-inner{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+    .hero-copy-inner > p{
+      margin:0;
+      font-size:17px;
       color:#344560;
-      max-width:560px;
       line-height:1.65;
       font-weight:400;
+      max-width:420px;
     }
-    .hero-actions{
+    .cotizador-block{
       display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom:18px;
+      flex-direction:column;
+      gap:8px;
+      max-width:320px;
     }
-    .hero-actions .btn-primary,
-    .hero-actions .btn-cotizador{
-      display:block;
-      text-align:center;
+    .cotizador-block .btn-cotizador{
+      width:100%;
+    }
+    .cotizador-block .cotizador-panel{
+      max-width:100%;
     }
     .btn-primary,.btn-secondary{
       padding:13px 24px;
@@ -285,7 +316,6 @@
       font-weight:600;
       font-size:14px;
       letter-spacing:.04em;
-      min-width:220px;
       text-align:center;
     }
     .btn-primary{background:var(--blue);color:#fff;transition:background .2s}
@@ -293,9 +323,10 @@
     .btn-secondary{background:transparent;color:var(--blue);border:1px solid var(--blue);transition:background .2s}
     .btn-secondary:hover{background:var(--blue-soft)}
     .mini-nav{
-      display:flex;gap:14px;flex-wrap:wrap;font-size:14px;color:#5c6d82;font-weight:700;
+      display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:#5c6d82;font-weight:600;
+      margin-top:4px;
     }
-    .mini-nav a{padding:8px 0;border-bottom:2px solid transparent}
+    .mini-nav a{padding:6px 0;border-bottom:2px solid transparent}
     .mini-nav a:hover{border-color:var(--blue);color:var(--blue)}
 
     /* ───── Contenedor imagen genérico ───── */
@@ -433,18 +464,22 @@
       background:linear-gradient(135deg,var(--blue),#0b4ca7);
       color:#fff;border-radius:34px;padding:36px;box-shadow:var(--shadow)
     }
-    .final-cta-grid{
-      display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center
-    }
-    .final-cta h2{margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);line-height:1.06;font-weight:400}
+.final-cta h2{margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);line-height:1.06;font-weight:400}
     .final-cta p{margin:0 0 20px;font-size:18px;color:rgba(255,255,255,.88);max-width:620px}
     .final-cta .btn-primary{display:inline-block}
-    .cta-ph{
-      min-height:260px;
-      border-radius:28px;
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.20);
-      display:grid;place-items:center;font-weight:700;color:#fff
+    .final-cta-grid-contact{
+      display:flex;
+      flex-direction:column;
+      max-width:620px;
+    }
+    .cotizador-pretitle{
+      margin:0 0 6px;
+      font-size:12px;
+      font-weight:600;
+      color:var(--muted);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      line-height:1.4;
     }
 
     footer{
@@ -567,7 +602,7 @@
     }
 
     @media (max-width: 980px){
-      .hero-grid,.cover-grid,.final-cta-grid,.footer-grid{grid-template-columns:1fr}
+      .hero-grid,.cover-grid,.final-cta-grid-contact,.footer-grid{grid-template-columns:1fr}
       .adv-grid{grid-template-columns:1fr}
       .nav{display:none}
       .ph{min-height:240px}
@@ -582,8 +617,10 @@
       .hero-copy h1{font-size:clamp(28px,8vw,48px)}
       .hero-copy h1 > div{width:100%;padding:12px 16px;gap:12px;}
       .hero-copy h1 > div img{height:22px;}
-      .hero-copy p{font-size:17px}
+      .hero-copy-inner > p{font-size:16px;max-width:100%;}
+      .cotizador-block{max-width:100%;}
       .btn-primary,.btn-secondary,.btn-cotizador{width:100%;text-align:center;min-width:unset;}
+      .cotizador-pretitle{font-size:11px;}
       .section-head p{font-size:17px}
       .card,.plans-wrap,.adv-item,.footer-box,details{padding:12px}
       th,td{padding:10px 8px;font-size:12px}
@@ -595,70 +632,6 @@
     }
     @media (max-width: 768px){
       .footer-ssn{margin-top:0}
-    }
-
-    /* ── Formulario de contacto ── */
-    .contact-form-wrap{
-      background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.25);
-      border-radius:24px;
-      padding:24px 22px;
-      min-height:260px;
-    }
-    .form-title{
-      margin:0 0 18px;
-      font-size:17px;
-      font-weight:700;
-      color:#fff;
-      line-height:1.3;
-    }
-    .contact-form{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .form-group{
-      display:flex;
-      flex-direction:column;
-      gap:5px;
-    }
-    .form-group label{
-      font-size:13px;
-      font-weight:700;
-      color:rgba(255,255,255,.85);
-    }
-    .form-group input{
-      padding:11px 14px;
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,.30);
-      background:rgba(255,255,255,.15);
-      color:#fff;
-      font-size:15px;
-      outline:none;
-      transition:border-color .2s;
-    }
-    .form-group input::placeholder{color:rgba(255,255,255,.55)}
-    .form-group input:focus{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.22)}
-    .btn-submit{
-      margin-top:6px;
-      padding:14px 20px;
-      border-radius:4px;
-      border:1px solid rgba(255,255,255,.35);
-      background:rgba(255,255,255,.15);
-      color:#fff;
-      font-family:'Raleway',sans-serif;
-      font-weight:600;
-      font-size:14px;
-      letter-spacing:.04em;
-      cursor:pointer;
-      transition:background .2s;
-    }
-    .btn-submit:hover{background:rgba(255,255,255,.28)}
-    .form-note{
-      margin:10px 0 0;
-      font-size:12px;
-      color:rgba(255,255,255,.60);
-      text-align:center;
     }
 
     /* ── Botón Contratar plan ── */
@@ -732,27 +705,6 @@
       gap:8px;
     }
 
-    .form-success{
-      margin-top:16px;
-      padding:18px;
-      border-radius:16px;
-      background:rgba(255,255,255,.18);
-      border:1px solid rgba(255,255,255,.35);
-      text-align:center;
-    }
-    .form-success-icon{
-      font-size:32px;
-      color:#5dffa0;
-      margin-bottom:8px;
-    }
-    .form-success-msg{
-      margin:0;
-      color:#fff;
-      font-size:16px;
-      font-weight:700;
-      line-height:1.5;
-    }
-
     /* ── Modal WA ── */
     .modal-overlay{
       display:none;position:fixed;inset:0;z-index:200;
@@ -815,8 +767,9 @@
 
     /* ── Cotizador ── */
     .btn-cotizador{
-      display:inline-block;
-      padding:13px 24px;
+      display:block;
+      width:100%;
+      padding:14px 24px;
       border-radius:4px;
       font-family:'Raleway',sans-serif;
       font-weight:600;
@@ -827,8 +780,6 @@
       border:none;
       cursor:pointer;
       transition:background .2s;
-      margin-bottom:10px;
-      min-width:220px;
       text-align:center;
     }
     .btn-cotizador:hover{background:var(--blue-dark)}
@@ -1180,30 +1131,6 @@
     .btn-cookie-accept:hover{opacity:.88}
     .btn-cookie-cancel:hover{background:rgba(255,255,255,.20)}
 
-    /* ── Estilos calendario / horario (agenda entrevista) ── */
-    .agenda-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-    }
-    @media(max-width:500px){.agenda-grid{grid-template-columns:1fr}}
-    .form-group select{
-      padding:11px 14px;
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,.30);
-      background:rgba(255,255,255,.15);
-      color:#fff;
-      font-size:15px;
-      outline:none;
-      transition:border-color .2s;
-      -webkit-appearance:none;
-      appearance:none;
-      cursor:pointer;
-    }
-    .form-group select:focus{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.22)}
-    .form-group select option{background:#1a2a40;color:#fff}
-    .form-group select option:disabled{color:#888}
-    .form-group select option.ocupado{color:#888 !important}
   </style>
 </head>
 <body>
@@ -1238,11 +1165,14 @@
       <h4>Cómo contratar este plan</h4>
       <p class="contratar-texto">
         En Lebenswahl creemos que la protección de una familia merece un análisis previo, profesional y personalizado.<br><br>
-        Te invitamos a agendar una entrevista con nosotros. Es el primer paso para encontrar la cobertura adecuada para tu situación, sin apuro y sin compromiso.
+        Contactanos por WhatsApp o mail: un asesor te guiará en cada paso, sin apuro y sin compromiso.
       </p>
-      <a href="#contacto" class="btn-primary" style="display:inline-block;margin-bottom:4px" onclick="cerrarModal('contratar-modal')">Agendar entrevista</a>
+      <a href="https://wa.me/5491127832498?text=Hola%2C%20quiero%20contratar%20un%20seguro%20Vida%20Protecci%C3%B3n." target="_blank" rel="noopener" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;margin-bottom:4px">
+        <svg viewBox="0 0 32 32" width="15" height="15" fill="#fff"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.829.742 5.484 2.042 7.789L0 32l8.418-2.01A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.765-1.849l-.484-.287-5.003 1.195 1.235-4.865-.317-.5A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.354-1.162-2.718-1.295-.365-.133-.63-.199-.896.199-.265.398-1.029 1.295-1.261 1.561-.232.265-.465.298-.863.1-.398-.199-1.681-.62-3.203-1.977-1.183-1.056-1.982-2.36-2.214-2.758-.232-.398-.025-.613.175-.811.179-.178.398-.465.597-.697.199-.232.265-.398.398-.664.133-.265.066-.497-.033-.696-.1-.199-.896-2.16-1.228-2.957-.323-.776-.651-.671-.896-.683l-.764-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.853 1.626 4.119c.199.265 2.808 4.287 6.802 6.014.951.41 1.693.655 2.271.839.954.304 1.823.261 2.51.158.765-.114 2.354-.962 2.686-1.891.332-.93.332-1.727.232-1.891-.099-.166-.365-.265-.763-.464z"/></svg>
+        Consultá por WhatsApp
+      </a>
       <hr class="contratar-divider">
-      <p class="contratar-sub">Si ya tuviste una entrevista con nuestro equipo y estás listo para avanzar, podés iniciar la solicitud:</p>
+      <p class="contratar-sub">Si ya hablaste con nuestro equipo y estás listo para avanzar, podés iniciar la solicitud:</p>
       <a href="https://www.lebenswahl.com/Solicitud" class="btn-ir-solicitud" target="_blank" rel="noopener">Iniciar solicitud de contratación</a>
     </div>
   </div>
@@ -1268,39 +1198,39 @@
         <div class="hero-grid">
           <div class="hero-copy">
             <!-- Header principal: Vida Protección + logo Allianz -->
-            <h1 style="margin:0 0 20px;">
+            <h1 style="margin:0 0 16px;" aria-label="Seguro de Vida Protección Allianz">
             <div style="display:inline-flex;align-items:center;gap:16px;background:#fff;border:1.5px solid #d4e0f5;border-radius:12px;padding:14px 24px;box-shadow:0 2px 10px rgba(0,28,80,.07);max-width:100%;box-sizing:border-box;">
               <span style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,42px);font-weight:600;color:var(--blue);letter-spacing:.01em;line-height:1.1;">Seguro de Vida Protección</span>
               <span style="width:1.5px;height:42px;background:#c8d8ee;display:inline-block;flex-shrink:0;"></span>
               <img src="allianz-logo.svg" alt="Allianz" style="height:38px;width:auto;display:inline-block;flex-shrink:0;">
             </div>
             </h1>
-            <p>Una cobertura integral pensada para vos y tu familia. Seguridad. Tranquilidad. Futuro.</p>
-            <div class="hero-actions" style="flex-direction:column;align-items:stretch;gap:10px;max-width:320px;width:100%;">
-              <!-- COTIZADOR -->
-              <button class="btn-cotizador" id="btn-abrir-cotizador" onclick="toggleCotizador()">Cotizar mi seguro</button>
-              <div class="cotizador-panel" id="cotizador-panel">
-                <h3>Ingresá tus datos para cotizar</h3>
-                <div class="cotizador-row">
-                  <div class="cotizador-field">
-                    <label for="cot-dni">DNI</label>
-                    <input type="text" id="cot-dni" placeholder="Ej: 30123456" maxlength="8" oninput="checkCotizadorFields()">
+            <div class="hero-copy-inner">
+              <p>Una cobertura integral pensada para vos y tu familia. Seguridad. Tranquilidad. Futuro.</p>
+              <div class="cotizador-block">
+                <p class="cotizador-pretitle">Obtené tu cotización en segundos</p>
+                <button class="btn-cotizador" id="btn-abrir-cotizador" aria-expanded="false" aria-controls="cotizador-panel" onclick="toggleCotizador()">Cotizar mi seguro</button>
+                <div class="cotizador-panel" id="cotizador-panel">
+                  <h3>Ingresá tus datos para cotizar</h3>
+                  <div class="cotizador-row">
+                    <div class="cotizador-field">
+                      <label for="cot-dni">DNI</label>
+                      <input type="text" id="cot-dni" placeholder="Ej: 30123456" maxlength="8" oninput="checkCotizadorFields()">
+                    </div>
+                    <div class="cotizador-field">
+                      <label for="cot-edad">Edad</label>
+                      <input type="number" id="cot-edad" placeholder="18 – 64" min="18" max="64" oninput="checkCotizadorFields()">
+                    </div>
                   </div>
-                  <div class="cotizador-field">
-                    <label for="cot-edad">Edad</label>
-                    <input type="number" id="cot-edad" placeholder="18 – 64" min="18" max="64" oninput="checkCotizadorFields()">
-                  </div>
+                  <button class="btn-cotizar" id="btn-cotizar" disabled onclick="mostrarCotizacion()">Ver cotización</button>
                 </div>
-                <button class="btn-cotizar" id="btn-cotizar" disabled onclick="mostrarCotizacion()">Ver cotización</button>
               </div>
-              <!-- Botones -->
-              <a class="btn-primary" href="#contacto">Agendar una entrevista</a>
+              <nav class="mini-nav" aria-label="Secciones de la página">
+                <a href="#ventajas">Ventajas</a>
+                <a href="#cobertura">Cobertura</a>
+                <a href="#faq">Preguntas frecuentes</a>
+              </nav>
             </div>
-            <nav class="mini-nav" aria-label="Secciones de la página">
-              <a href="#ventajas">Ventajas</a>
-              <a href="#cobertura">Cobertura</a>
-              <a href="#faq">Preguntas frecuentes</a>
-            </nav>
           </div>
           <div class="ph">
             <img src="hero.png" alt="Familia protegida con seguro de vida Allianz Argentina" style="width:100%; height:100%; object-fit:cover; border-radius:28px; position:absolute; inset:0;">
@@ -1492,10 +1422,10 @@
     <section id="contacto" aria-labelledby="contacto-titulo">
       <div class="container">
         <div class="final-cta">
-          <div class="final-cta-grid">
+          <div class="final-cta-grid-contact">
             <div>
-              <h2 id="contacto-titulo" style="padding-top:4px">Agendá tu entrevista</h2>
-              <p>Elegí el día y horario que más te convenga. Un asesor te confirmará la entrevista por mensaje o mail.</p>
+              <h2 id="contacto-titulo" style="padding-top:4px">¿Necesitás asesoramiento?</h2>
+              <p>Contactanos por WhatsApp o mail. Un asesor especializado te responde sin compromiso.</p>
               <div style="margin-top:18px;display:flex;flex-direction:column;gap:10px;">
                 <a href="https://wa.me/5491127832498?text=Hola%2C%20estoy%20interesado%20en%20un%20seguro%20Vida%20Protecci%C3%B3n." target="_blank" rel="noopener"
                   style="display:flex;align-items:center;gap:10px;color:#fff;font-size:15px;font-weight:600;text-decoration:none;opacity:.92;">
@@ -1509,48 +1439,6 @@
                   <span style="background:rgba(255,255,255,.18);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;font-size:16px;">✉️</span>
                   contacto@lebenswahl.com
                 </a>
-              </div>
-            </div>
-            <div class="contact-form-wrap">
-              <h3 class="form-title">Agendá tu entrevista con un asesor</h3>
-              <form class="contact-form" id="contacto-form" novalidate>
-                <input type="hidden" name="_subject" value="Nueva solicitud de entrevista - Lebenswahl">
-                <div class="form-group">
-                  <label for="nombre">Nombre completo</label>
-                  <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required autocomplete="name">
-                </div>
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="email" placeholder="tu@email.com" required autocomplete="email">
-                </div>
-                <div class="form-group">
-                  <label for="telefono">Teléfono de contacto</label>
-                  <input type="tel" id="telefono" name="telefono" placeholder="Ej: +54 9 11 1234-5678" required autocomplete="tel">
-                </div>
-                <div class="agenda-grid">
-                  <div class="form-group">
-                    <label for="fecha-entrevista">Día de entrevista</label>
-                    <select id="fecha-entrevista" name="Día de entrevista" required>
-                      <option value="" disabled selected>Elegí un día</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="horario-entrevista">Horario</label>
-                    <select id="horario-entrevista" name="Horario de entrevista" required>
-                      <option value="" disabled selected>Elegí un horario</option>
-                      <option value="10:00 hs" id="h10">10:00 hs</option>
-                      <option value="14:00 hs" id="h14">14:00 hs</option>
-                      <option value="16:00 hs" id="h16">16:00 hs</option>
-                    </select>
-                  </div>
-                </div>
-                <button type="submit" class="btn-submit">Confirmar entrevista</button>
-                <p id="form-error" class="form-note" style="display:none;color:#ffcccc;">Hubo un problema al enviar. Por favor intentá nuevamente.</p>
-              </form>
-              <p class="form-note">Tu información es confidencial. Sin compromiso.</p>
-              <div class="form-success" id="form-success" style="display:none">
-                <div class="form-success-icon">✓</div>
-                <p class="form-success-msg">¡Muchas gracias por tu interés!<br>Un asesor te estará confirmando la entrevista por mensaje o mail.</p>
               </div>
             </div>
           </div>
@@ -1636,101 +1524,6 @@
       localStorage.setItem('lw_cookies','declined');
       document.getElementById('cookie-banner').classList.add('hidden');
     }
-  </script>
-
-  <script>
-    // ── Formulario agenda entrevista ──
-    (function(){
-
-      // Generar días hábiles 2026 (lunes a viernes)
-      var sel = document.getElementById('fecha-entrevista');
-      var meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
-      var dias  = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
-      var hoy   = new Date();
-      hoy.setHours(0,0,0,0);
-      var d = new Date(2026,4,1); // 1 mayo 2026
-      var fin = new Date(2026,11,31);
-      while(d <= fin){
-        var dow = d.getDay();
-        if(dow >= 1 && dow <= 5){ // lun-vie
-          var opt = document.createElement('option');
-          var label = dias[dow]+' '+d.getDate()+' de '+meses[d.getMonth()]+' 2026';
-          opt.value = label;
-          opt.textContent = label;
-          sel.appendChild(opt);
-        }
-        d.setDate(d.getDate()+1);
-      }
-
-      // Bloquear 16hs en lunes, miércoles y viernes
-      sel.addEventListener('change', function(){
-        var val = sel.value;
-        var h16 = document.getElementById('h16');
-        var horSel = document.getElementById('horario-entrevista');
-        var esOcupado = val.startsWith('lunes') || val.toLowerCase().indexOf('mi') === 0 && val.toLowerCase().indexOf('rcoles') > 0 || val.startsWith('viernes');
-        if(esOcupado){
-          h16.disabled = true;
-          h16.textContent = '16:00 hs (ocupado)';
-          h16.classList.add('ocupado');
-          if(horSel.value === '16:00 hs') horSel.value = '';
-        } else {
-          h16.disabled = false;
-          h16.textContent = '16:00 hs';
-          h16.classList.remove('ocupado');
-        }
-      });
-
-      // Envío del formulario
-      var form = document.getElementById('contacto-form');
-      var success = document.getElementById('form-success');
-      var errorMsg = document.getElementById('form-error');
-      if(!form) return;
-
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        if(errorMsg) errorMsg.style.display = 'none';
-
-        var nombre = form.querySelector('#nombre').value.trim();
-        var email  = form.querySelector('#email').value.trim();
-        var tel    = form.querySelector('#telefono').value.trim();
-        var fecha  = document.getElementById('fecha-entrevista').value;
-        var hora   = document.getElementById('horario-entrevista').value;
-
-        if(!nombre || !email || !tel || !fecha || !hora){
-          if(errorMsg){
-            errorMsg.textContent = 'Por favor completá todos los campos antes de confirmar.';
-            errorMsg.style.display = 'block';
-          }
-          return;
-        }
-
-        var data = new FormData(form);
-        // _replyto le indica a Formspree el mail al que enviar el auto-reply
-        data.set('_replyto', email);
-
-        fetch('https://formspree.io/f/xlgzbnpd', {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        })
-        .then(function(res){
-          return res.json().then(function(json){ return {ok: res.ok, json: json}; });
-        })
-        .then(function(r){
-          if(r.ok){
-            form.style.display = 'none';
-            if(success) success.style.display = 'block';
-          } else {
-            console.error('Formspree error:', r.json);
-            if(errorMsg) errorMsg.style.display = 'block';
-          }
-        })
-        .catch(function(err){
-          console.error('Fetch error:', err);
-          if(errorMsg) errorMsg.style.display = 'block';
-        });
-      });
-    })();
   </script>
 
   <script>
@@ -1843,7 +1636,10 @@
   function toggleCotizador(){
     var panel = document.getElementById('cotizador-panel');
     panel.classList.toggle('open');
-    if(!panel.classList.contains('open')){
+    var btn = document.getElementById('btn-abrir-cotizador');
+    var isOpen = panel.classList.contains('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if(!isOpen){
       document.getElementById('cotizador-resultado').style.display='none';
     }
   }
