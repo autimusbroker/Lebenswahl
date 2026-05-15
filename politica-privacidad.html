@@ -204,7 +204,7 @@
       <div class="brand">
         <img src="Logo Horizontal.png" alt="Lebenswahl Broker" style="height:80px;width:auto;" />
       </div>
-      <a href="javascript: window.history.length > 1 ? history.back() : window.location.href='https://www.lebenswahl.com'" class="back-link">← Volver</a>
+      <a href="#" onclick="history.back(); return false;" class="back-link">← Volver</a>
     </div>
   </header>
 
@@ -401,7 +401,7 @@
 
         <!-- Botón cerrar pestaña -->
         <div style="text-align:center">
-          <a href="javascript: window.history.length > 1 ? history.back() : window.location.href='https://www.lebenswahl.com'" class="btn-volver">
+          <a href="#" onclick="history.back(); return false;" class="btn-volver">
             ← Volver a la solicitud
           </a>
           <p style="margin-top:12px;font-size:12px;color:var(--muted)">
@@ -445,8 +445,8 @@
   </footer>
 
   <script>
-    // El estado del formulario se restaura automáticamente vía sessionStorage
-    // al volver a /solicitud — no se necesita history.back()
+    // Ambos botones "Volver" usan history.back() para regresar exactamente
+    // a la página anterior (ej: el formulario), conservando todo su estado.
   </script>
 
 </body>
