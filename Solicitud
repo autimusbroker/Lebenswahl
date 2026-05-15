@@ -763,7 +763,7 @@
           <div class="footer-col-title">Legales</div>
           <div class="footer-links">
             <a href="terminos-condiciones.html">Términos y condiciones</a>
-            <a href="politica-privacidad.html">Política de privacidad</a>
+            <a href="politica-privacidad.html" target="_blank" rel="noopener">Política de privacidad</a>
             <div style="margin-top:8px">
               <a href="arrepentimiento.html" class="btn-arrepentimiento">Botón de arrepentimiento</a>
               <div class="btn-arrepentimiento-note">Ley 24.240 · Art. 34 · Res. 424/2020</div>
