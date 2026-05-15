@@ -204,7 +204,7 @@
       <div class="brand">
         <img src="Logo Horizontal.png" alt="Lebenswahl Broker" style="height:80px;width:auto;" />
       </div>
-      <a href="https://www.lebenswahl.com" class="back-link">← Volver al sitio</a>
+      <a href="javascript: window.history.length > 1 ? history.back() : window.location.href='https://www.lebenswahl.com'" class="back-link">← Volver</a>
     </div>
   </header>
 
@@ -401,11 +401,11 @@
 
         <!-- Botón cerrar pestaña -->
         <div style="text-align:center">
-          <a href="https://www.lebenswahl.com" class="btn-volver">
-            ← Volver al sitio
+          <a href="javascript: window.history.length > 1 ? history.back() : window.location.href='https://www.lebenswahl.com'" class="btn-volver">
+            ← Volver a la solicitud
           </a>
           <p style="margin-top:12px;font-size:12px;color:var(--muted)">
-            Podés volver al sitio y continuar navegando.
+            Podés cerrar esta pestaña y continuar con tu solicitud.
           </p>
         </div>
 
