@@ -204,7 +204,7 @@
       <div class="brand">
         <img src="Logo Horizontal.png" alt="Lebenswahl Broker" style="height:80px;width:auto;" />
       </div>
-      <a href="#" onclick="history.back(); return false;" class="back-link">← Volver</a>
+      <a href="#" onclick="window.close(); return false;" class="back-link">✕ Cerrar</a>
     </div>
   </header>
 
@@ -401,8 +401,8 @@
 
         <!-- Botón cerrar pestaña -->
         <div style="text-align:center">
-          <a href="#" onclick="history.back(); return false;" class="btn-volver">
-            ← Volver a la solicitud
+          <a href="#" onclick="window.close(); return false;" class="btn-volver">
+            ✕ Cerrar y volver a la solicitud
           </a>
           <p style="margin-top:12px;font-size:12px;color:var(--muted)">
             Podés cerrar esta pestaña y continuar con tu solicitud.
@@ -445,8 +445,8 @@
   </footer>
 
   <script>
-    // Ambos botones "Volver" usan history.back() para regresar exactamente
-    // a la página anterior (ej: el formulario), conservando todo su estado.
+    // Ambos botones cierran la pestaña actual (window.close()).
+    // La pestaña del formulario queda abierta e intacta.
   </script>
 
 </body>
