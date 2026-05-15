@@ -575,7 +575,7 @@
           <div class="nav-btns">
             <button class="btn-next" onclick="document.getElementById('aviso-previo').style.display='none'; goTo(2)">Siguiente → Declaración de salud</button>
           </div>
-          <p class="step-privacy-note">Al presionar Siguiente, confirmás haber leído y aceptado nuestra <a href="politica-privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>.</p>
+          <p class="step-privacy-note">Al presionar Siguiente, confirmás haber leído y aceptado nuestra <a href="politica-privacidad.html" onclick="saveState()" target="_blank" rel="noopener">Política de Privacidad</a>.</p>
         </div>
 
         <!-- ─── PASO 2: DECLARACIÓN DE SALUD ─── -->
@@ -702,7 +702,7 @@
             <span class="lock-icon">🔒</span>
             <div>
               <p>Tus datos serán tratados con confidencialidad y utilizados únicamente para gestionar esta solicitud preliminar.</p>
-              <a href="politica-privacidad.html" target="_blank" rel="noopener">Política de privacidad →</a>
+              <a href="politica-privacidad.html" onclick="saveState()" target="_blank" rel="noopener">Política de privacidad →</a>
             </div>
           </div>
 
@@ -1056,7 +1056,8 @@
       peso:         document.getElementById('peso').value,
       ocupacion:    document.getElementById('ocupacion').value,
       tratamiento:  tratamientoVal,
-      ampliar:      document.getElementById('ampliar').value
+      ampliar:      document.getElementById('ampliar').value,
+      avisoPrevio:  document.getElementById('aviso-previo').style.display
     };
     sessionStorage.setItem('solicitud_state', JSON.stringify(state));
   }
@@ -1083,6 +1084,10 @@
     }
     if(s.ampliar){
       document.getElementById('ampliar').value = s.ampliar;
+    }
+
+    if(s.avisoPrevio !== undefined){
+      document.getElementById('aviso-previo').style.display = s.avisoPrevio;
     }
 
     // Ir al paso guardado (sin validar)
