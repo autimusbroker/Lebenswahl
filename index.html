@@ -2036,16 +2036,51 @@
     var leyenda = '<p class="resultado-leyenda">* Los valores indicados corresponden al premio mensual en dólares. Los precios son de carácter informativo. Consultá con un asesor para confirmar condiciones vigentes.</p>';
 
     var res = document.getElementById('cotizador-resultado');
-    res.innerHTML =
+    var finalHTML =
       '<p class="resultado-intro">Cotización · '+edad+' años</p>'+
       '<div class="resultado-scroll">'+
         '<div class="resultado-wrap">'+headRow+dataRows+btnsRow+'</div>'+
       '</div>'+
       '<div class="mobile-cards">'+mobileCards+'</div>'+
       leyenda;
-    res.style.display='block';
 
+    res.innerHTML = '<div id="lebens-anim-wrap" style="display:flex;align-items:center;justify-content:center;padding:48px 0;"><div id="lebens-anim-text" style="font-family:\'Cormorant Garamond\',Georgia,serif;font-size:48px;font-weight:300;letter-spacing:0.18em;color:#002d6e;"><span id="la0" style="opacity:0;display:inline-block;">L</span><span id="la1" style="opacity:0;display:inline-block;">E</span><span id="la2" style="opacity:0;display:inline-block;">B</span><span id="la3" style="opacity:0;display:inline-block;">E</span><span id="la4" style="opacity:0;display:inline-block;">N</span><span id="la5" style="opacity:0;display:inline-block;">S</span><span id="la6" style="opacity:0;display:inline-block;color:#b8975a;letter-spacing:0.1em;"> ···</span></div></div>';
+    res.style.display='block';
     setTimeout(function(){ res.scrollIntoView({behavior:'smooth', block:'start'}); }, 80);
+
+    if(!document.getElementById('lebens-keyframes')){
+      var style=document.createElement('style');
+      style.id='lebens-keyframes';
+      style.innerHTML='@keyframes lbFadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}@keyframes lbPulse{0%,100%{opacity:1}50%{opacity:0.3}}';
+      document.head.appendChild(style);
+    }
+
+    function runLebensOnce(onComplete){
+      var ids=['la0','la1','la2','la3','la4','la5'];
+      var wrap=document.getElementById('lebens-anim-text');
+      if(!wrap){ onComplete&&onComplete(); return; }
+      ids.forEach(function(id){ var el=document.getElementById(id); if(el){el.style.opacity='0';el.style.animation='none';el.style.transform='translateY(8px)';} });
+      var d=document.getElementById('la6'); if(d){d.style.opacity='0';d.style.animation='none';}
+      wrap.style.transition='none'; wrap.style.opacity='1';
+      void wrap.offsetWidth;
+      ids.forEach(function(id,i){
+        setTimeout(function(){ var el=document.getElementById(id); if(el) el.style.animation='lbFadeInUp 0.5s cubic-bezier(0.22,1,0.36,1) forwards'; },i*220);
+      });
+      setTimeout(function(){ var d=document.getElementById('la6'); if(d) d.style.animation='lbFadeInUp 0.5s cubic-bezier(0.22,1,0.36,1) forwards,lbPulse 1.2s ease-in-out 0.5s infinite'; },ids.length*220);
+      setTimeout(function(){
+        if(wrap){ wrap.style.transition='opacity 0.7s ease'; wrap.style.opacity='0'; }
+        setTimeout(function(){ onComplete&&onComplete(); },750);
+      },3300);
+    }
+
+    runLebensOnce(function(){
+      setTimeout(function(){
+        runLebensOnce(function(){
+          var r=document.getElementById('cotizador-resultado');
+          if(r){ r.innerHTML=finalHTML; r.style.display='block'; }
+        });
+      },200);
+    });
   }
 
   // ── Modales ──
